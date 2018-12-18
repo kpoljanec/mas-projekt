@@ -1,0 +1,24 @@
+#include "xparameters.h"
+#include "xiicps.h"
+#include "xil_printf.h"
+
+int main(void)
+{
+	int Status;
+	XIicPs_Config *Config;
+
+	/*
+	 * Initialize the IIC driver so that it's ready to use
+	 * Look up the configuration in the config table,
+	 * then initialize it.
+	 */
+	Config = XIicPs_LookupConfig(DeviceId);
+	if (NULL == Config) {
+		return XST_FAILURE;
+	}
+
+	Status = XIicPs_CfgInitialize(&Iic, Config, Config->BaseAddress);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+}
