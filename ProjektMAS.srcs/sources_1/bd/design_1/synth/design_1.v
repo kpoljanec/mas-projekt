@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Mon Dec 17 12:49:08 2018
+//Date        : Thu Jan 17 15:49:24 2019
 //Host        : Karlo-Laptop running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=4,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=1,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=8,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=2,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DDR_addr,
     DDR_ba,
@@ -68,9 +68,9 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0_0 SDA_O" *) output IIC_0_0_sda_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0_0 SDA_T" *) output IIC_0_0_sda_t;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.XCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.XCLK, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1, FREQ_HZ 20000000, PHASE 0.000" *) output XCLK;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 camera_11bits " *) input [10:0]camera_11bits_tri_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 camera_11bits TRI_I" *) input [10:0]camera_11bits_tri_i;
 
-  wire [10:0]axi_gpio_0_GPIO_TRI_I;
+  (* CONN_BUS_INFO = "axi_gpio_0_GPIO xilinx.com:interface:gpio:1.0 None TRI_I" *) (* DONT_TOUCH *) wire [10:0]axi_gpio_0_GPIO_TRI_I;
   wire [0:0]proc_sys_reset_0_interconnect_aresetn;
   wire [0:0]proc_sys_reset_0_peripheral_aresetn;
   wire [14:0]processing_system7_0_DDR_ADDR;
@@ -97,12 +97,12 @@ module design_1
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
-  wire processing_system7_0_IIC_0_SCL_I;
-  wire processing_system7_0_IIC_0_SCL_O;
-  wire processing_system7_0_IIC_0_SCL_T;
-  wire processing_system7_0_IIC_0_SDA_I;
-  wire processing_system7_0_IIC_0_SDA_O;
-  wire processing_system7_0_IIC_0_SDA_T;
+  (* CONN_BUS_INFO = "processing_system7_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_I" *) (* DONT_TOUCH *) wire processing_system7_0_IIC_0_SCL_I;
+  (* CONN_BUS_INFO = "processing_system7_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_O" *) (* DONT_TOUCH *) wire processing_system7_0_IIC_0_SCL_O;
+  (* CONN_BUS_INFO = "processing_system7_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_T" *) (* DONT_TOUCH *) wire processing_system7_0_IIC_0_SCL_T;
+  (* CONN_BUS_INFO = "processing_system7_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_I" *) (* DONT_TOUCH *) wire processing_system7_0_IIC_0_SDA_I;
+  (* CONN_BUS_INFO = "processing_system7_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_O" *) (* DONT_TOUCH *) wire processing_system7_0_IIC_0_SDA_O;
+  (* CONN_BUS_INFO = "processing_system7_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_T" *) (* DONT_TOUCH *) wire processing_system7_0_IIC_0_SDA_T;
   wire [31:0]processing_system7_0_M_AXI_GP0_ARADDR;
   wire [1:0]processing_system7_0_M_AXI_GP0_ARBURST;
   wire [3:0]processing_system7_0_M_AXI_GP0_ARCACHE;
@@ -143,21 +143,21 @@ module design_1
   wire processing_system7_0_M_AXI_GP0_WVALID;
   wire [31:0]ps7_0_axi_periph_M00_AXI_ARADDR;
   wire ps7_0_axi_periph_M00_AXI_ARREADY;
-  wire ps7_0_axi_periph_M00_AXI_ARVALID;
+  wire [0:0]ps7_0_axi_periph_M00_AXI_ARVALID;
   wire [31:0]ps7_0_axi_periph_M00_AXI_AWADDR;
   wire ps7_0_axi_periph_M00_AXI_AWREADY;
-  wire ps7_0_axi_periph_M00_AXI_AWVALID;
-  wire ps7_0_axi_periph_M00_AXI_BREADY;
+  wire [0:0]ps7_0_axi_periph_M00_AXI_AWVALID;
+  wire [0:0]ps7_0_axi_periph_M00_AXI_BREADY;
   wire [1:0]ps7_0_axi_periph_M00_AXI_BRESP;
   wire ps7_0_axi_periph_M00_AXI_BVALID;
   wire [31:0]ps7_0_axi_periph_M00_AXI_RDATA;
-  wire ps7_0_axi_periph_M00_AXI_RREADY;
+  wire [0:0]ps7_0_axi_periph_M00_AXI_RREADY;
   wire [1:0]ps7_0_axi_periph_M00_AXI_RRESP;
   wire ps7_0_axi_periph_M00_AXI_RVALID;
   wire [31:0]ps7_0_axi_periph_M00_AXI_WDATA;
   wire ps7_0_axi_periph_M00_AXI_WREADY;
   wire [3:0]ps7_0_axi_periph_M00_AXI_WSTRB;
-  wire ps7_0_axi_periph_M00_AXI_WVALID;
+  wire [0:0]ps7_0_axi_periph_M00_AXI_WVALID;
 
   assign IIC_0_0_scl_o = processing_system7_0_IIC_0_SCL_O;
   assign IIC_0_0_scl_t = processing_system7_0_IIC_0_SCL_T;
@@ -188,6 +188,17 @@ module design_1
         .s_axi_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
+  design_1_system_ila_1_0 gpio
+       (.SLOT_0_GPIO_tri_i(axi_gpio_0_GPIO_TRI_I),
+        .clk(processing_system7_0_FCLK_CLK0));
+  design_1_system_ila_0_2 i2c
+       (.SLOT_0_IIC_scl_i(processing_system7_0_IIC_0_SCL_I),
+        .SLOT_0_IIC_scl_o(processing_system7_0_IIC_0_SCL_O),
+        .SLOT_0_IIC_scl_t(processing_system7_0_IIC_0_SCL_T),
+        .SLOT_0_IIC_sda_i(processing_system7_0_IIC_0_SDA_I),
+        .SLOT_0_IIC_sda_o(processing_system7_0_IIC_0_SDA_O),
+        .SLOT_0_IIC_sda_t(processing_system7_0_IIC_0_SDA_T),
+        .clk(processing_system7_0_FCLK_CLK0));
   design_1_proc_sys_reset_0_0 proc_sys_reset_0
        (.aux_reset_in(1'b1),
         .dcm_locked(1'b1),
@@ -270,7 +281,7 @@ module design_1
        (.ACLK(processing_system7_0_FCLK_CLK0),
         .ARESETN(proc_sys_reset_0_interconnect_aresetn),
         .M00_ACLK(processing_system7_0_FCLK_CLK0),
-        .M00_ARESETN(proc_sys_reset_0_peripheral_aresetn),
+        .M00_ARESETN(proc_sys_reset_0_interconnect_aresetn),
         .M00_AXI_araddr(ps7_0_axi_periph_M00_AXI_ARADDR),
         .M00_AXI_arready(ps7_0_axi_periph_M00_AXI_ARREADY),
         .M00_AXI_arvalid(ps7_0_axi_periph_M00_AXI_ARVALID),
@@ -289,7 +300,7 @@ module design_1
         .M00_AXI_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .M00_AXI_wvalid(ps7_0_axi_periph_M00_AXI_WVALID),
         .S00_ACLK(processing_system7_0_FCLK_CLK0),
-        .S00_ARESETN(proc_sys_reset_0_peripheral_aresetn),
+        .S00_ARESETN(proc_sys_reset_0_interconnect_aresetn),
         .S00_AXI_araddr(processing_system7_0_M_AXI_GP0_ARADDR),
         .S00_AXI_arburst(processing_system7_0_M_AXI_GP0_ARBURST),
         .S00_AXI_arcache(processing_system7_0_M_AXI_GP0_ARCACHE),
@@ -397,22 +408,22 @@ module design_1_ps7_0_axi_periph_0
   input M00_ACLK;
   input M00_ARESETN;
   output [31:0]M00_AXI_araddr;
-  input M00_AXI_arready;
-  output M00_AXI_arvalid;
+  input [0:0]M00_AXI_arready;
+  output [0:0]M00_AXI_arvalid;
   output [31:0]M00_AXI_awaddr;
-  input M00_AXI_awready;
-  output M00_AXI_awvalid;
-  output M00_AXI_bready;
+  input [0:0]M00_AXI_awready;
+  output [0:0]M00_AXI_awvalid;
+  output [0:0]M00_AXI_bready;
   input [1:0]M00_AXI_bresp;
-  input M00_AXI_bvalid;
+  input [0:0]M00_AXI_bvalid;
   input [31:0]M00_AXI_rdata;
-  output M00_AXI_rready;
+  output [0:0]M00_AXI_rready;
   input [1:0]M00_AXI_rresp;
-  input M00_AXI_rvalid;
+  input [0:0]M00_AXI_rvalid;
   output [31:0]M00_AXI_wdata;
-  input M00_AXI_wready;
+  input [0:0]M00_AXI_wready;
   output [3:0]M00_AXI_wstrb;
-  output M00_AXI_wvalid;
+  output [0:0]M00_AXI_wvalid;
   input S00_ACLK;
   input S00_ARESETN;
   input [31:0]S00_AXI_araddr;
@@ -497,32 +508,32 @@ module design_1_ps7_0_axi_periph_0
   wire [3:0]ps7_0_axi_periph_to_s00_couplers_WSTRB;
   wire ps7_0_axi_periph_to_s00_couplers_WVALID;
   wire [31:0]s00_couplers_to_ps7_0_axi_periph_ARADDR;
-  wire s00_couplers_to_ps7_0_axi_periph_ARREADY;
+  wire [0:0]s00_couplers_to_ps7_0_axi_periph_ARREADY;
   wire s00_couplers_to_ps7_0_axi_periph_ARVALID;
   wire [31:0]s00_couplers_to_ps7_0_axi_periph_AWADDR;
-  wire s00_couplers_to_ps7_0_axi_periph_AWREADY;
+  wire [0:0]s00_couplers_to_ps7_0_axi_periph_AWREADY;
   wire s00_couplers_to_ps7_0_axi_periph_AWVALID;
   wire s00_couplers_to_ps7_0_axi_periph_BREADY;
   wire [1:0]s00_couplers_to_ps7_0_axi_periph_BRESP;
-  wire s00_couplers_to_ps7_0_axi_periph_BVALID;
+  wire [0:0]s00_couplers_to_ps7_0_axi_periph_BVALID;
   wire [31:0]s00_couplers_to_ps7_0_axi_periph_RDATA;
   wire s00_couplers_to_ps7_0_axi_periph_RREADY;
   wire [1:0]s00_couplers_to_ps7_0_axi_periph_RRESP;
-  wire s00_couplers_to_ps7_0_axi_periph_RVALID;
+  wire [0:0]s00_couplers_to_ps7_0_axi_periph_RVALID;
   wire [31:0]s00_couplers_to_ps7_0_axi_periph_WDATA;
-  wire s00_couplers_to_ps7_0_axi_periph_WREADY;
+  wire [0:0]s00_couplers_to_ps7_0_axi_periph_WREADY;
   wire [3:0]s00_couplers_to_ps7_0_axi_periph_WSTRB;
   wire s00_couplers_to_ps7_0_axi_periph_WVALID;
 
   assign M00_AXI_araddr[31:0] = s00_couplers_to_ps7_0_axi_periph_ARADDR;
-  assign M00_AXI_arvalid = s00_couplers_to_ps7_0_axi_periph_ARVALID;
+  assign M00_AXI_arvalid[0] = s00_couplers_to_ps7_0_axi_periph_ARVALID;
   assign M00_AXI_awaddr[31:0] = s00_couplers_to_ps7_0_axi_periph_AWADDR;
-  assign M00_AXI_awvalid = s00_couplers_to_ps7_0_axi_periph_AWVALID;
-  assign M00_AXI_bready = s00_couplers_to_ps7_0_axi_periph_BREADY;
-  assign M00_AXI_rready = s00_couplers_to_ps7_0_axi_periph_RREADY;
+  assign M00_AXI_awvalid[0] = s00_couplers_to_ps7_0_axi_periph_AWVALID;
+  assign M00_AXI_bready[0] = s00_couplers_to_ps7_0_axi_periph_BREADY;
+  assign M00_AXI_rready[0] = s00_couplers_to_ps7_0_axi_periph_RREADY;
   assign M00_AXI_wdata[31:0] = s00_couplers_to_ps7_0_axi_periph_WDATA;
   assign M00_AXI_wstrb[3:0] = s00_couplers_to_ps7_0_axi_periph_WSTRB;
-  assign M00_AXI_wvalid = s00_couplers_to_ps7_0_axi_periph_WVALID;
+  assign M00_AXI_wvalid[0] = s00_couplers_to_ps7_0_axi_periph_WVALID;
   assign S00_ACLK_1 = S00_ACLK;
   assign S00_ARESETN_1 = S00_ARESETN;
   assign S00_AXI_arready = ps7_0_axi_periph_to_s00_couplers_ARREADY;
@@ -565,14 +576,14 @@ module design_1_ps7_0_axi_periph_0
   assign ps7_0_axi_periph_to_s00_couplers_WLAST = S00_AXI_wlast;
   assign ps7_0_axi_periph_to_s00_couplers_WSTRB = S00_AXI_wstrb[3:0];
   assign ps7_0_axi_periph_to_s00_couplers_WVALID = S00_AXI_wvalid;
-  assign s00_couplers_to_ps7_0_axi_periph_ARREADY = M00_AXI_arready;
-  assign s00_couplers_to_ps7_0_axi_periph_AWREADY = M00_AXI_awready;
+  assign s00_couplers_to_ps7_0_axi_periph_ARREADY = M00_AXI_arready[0];
+  assign s00_couplers_to_ps7_0_axi_periph_AWREADY = M00_AXI_awready[0];
   assign s00_couplers_to_ps7_0_axi_periph_BRESP = M00_AXI_bresp[1:0];
-  assign s00_couplers_to_ps7_0_axi_periph_BVALID = M00_AXI_bvalid;
+  assign s00_couplers_to_ps7_0_axi_periph_BVALID = M00_AXI_bvalid[0];
   assign s00_couplers_to_ps7_0_axi_periph_RDATA = M00_AXI_rdata[31:0];
   assign s00_couplers_to_ps7_0_axi_periph_RRESP = M00_AXI_rresp[1:0];
-  assign s00_couplers_to_ps7_0_axi_periph_RVALID = M00_AXI_rvalid;
-  assign s00_couplers_to_ps7_0_axi_periph_WREADY = M00_AXI_wready;
+  assign s00_couplers_to_ps7_0_axi_periph_RVALID = M00_AXI_rvalid[0];
+  assign s00_couplers_to_ps7_0_axi_periph_WREADY = M00_AXI_wready[0];
   s00_couplers_imp_UYSKKA s00_couplers
        (.M_ACLK(ps7_0_axi_periph_ACLK_net),
         .M_ARESETN(ps7_0_axi_periph_ARESETN_net),

@@ -1,8 +1,23 @@
-17:52:36 **** Incremental Build of configuration Debug for project mas_camera_bsp_xiicps_polled_slave_example_1 ****
+17:50:11 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_polled_slave_example_1 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-make: Ništa za napraviti za `main-build'.
+'Building file: ../src/xiicps_polled_slave_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_polled_slave_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_polled_slave_example.d" -MT"src/xiicps_polled_slave_example.o" -o "src/xiicps_polled_slave_example.o" "../src/xiicps_polled_slave_example.c"
+'Finished building: ../src/xiicps_polled_slave_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_polled_slave_example_1.elf"  ./src/xiicps_polled_slave_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_polled_slave_example_1.elf  |tee "mas_camera_bsp_xiicps_polled_slave_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27068	   1164	  23144	  51376	   c8b0	mas_camera_bsp_xiicps_polled_slave_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_polled_slave_example_1.elf.size'
+' '
 
-17:52:36 Build Finished (took 199ms)
+17:50:12 Build Finished (took 1s.19ms)
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>design_1_wrapper_hw_platform_0_Traces</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.linuxtools.tmf.project.nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Traces/Run_sij-17_16-23/PS_Trace_sij-17_16-23/PS_Trace_sij-17_16-23_</name>
+			<type>1</type>
+			<location>D:/MAS/ProjektMAS/ProjektMAS.sdk/design_1_wrapper_hw_platform_0_Traces/Traces/.bookmarks</location>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -181,7 +181,7 @@
             <spirit:value>20000000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
+                <bd:configElementInfo bd:valueSource="user_prop"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -307,7 +307,6 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_APU_PERIPHERAL_FREQMHZ">650</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_DCI_PERIPHERAL_FREQMHZ">10.159</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_QSPI_PERIPHERAL_FREQMHZ">200</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_SDIO_PERIPHERAL_FREQMHZ">50</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_UART_PERIPHERAL_FREQMHZ">100</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_I2C_PERIPHERAL_FREQMHZ">108.333336</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_PCAP_PERIPHERAL_FREQMHZ">200</spirit:configurableElementValue>
@@ -516,8 +515,6 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_SPI1_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USB0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USB_RESET_ENABLE">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_USB0_RESET_ENABLE">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_USB0_RESET_IO">MIO 46</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USB1_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_I2C0_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_I2C0_I2C0_IO">EMIO</spirit:configurableElementValue>
@@ -793,6 +790,24 @@
           <spirit:configurableElementValue spirit:referenceId="appcore">xilinx.com:ip:axi_interconnect:2.1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>i2c</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="system_ila" spirit:vendor="xilinx.com" spirit:version="1.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_system_ila_0_2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_NUM_MONITOR_SLOTS">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_INTF_TYPE">xilinx.com:interface:iic_rtl:1.0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>gpio</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="system_ila" spirit:vendor="xilinx.com" spirit:version="1.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_system_ila_1_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_DATA_DEPTH">65536</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_INTF_TYPE">xilinx.com:interface:gpio_rtl:1.0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
       <spirit:interconnection>
@@ -805,6 +820,16 @@
         <spirit:activeInterface spirit:busRef="M00_AXI" spirit:componentRef="ps7_0_axi_periph"/>
         <spirit:activeInterface spirit:busRef="S_AXI" spirit:componentRef="axi_gpio_0"/>
       </spirit:interconnection>
+      <spirit:monitorInterconnection>
+        <spirit:name>axi_gpio_0_GPIO</spirit:name>
+        <spirit:monitoredActiveInterface spirit:busRef="GPIO" spirit:componentRef="axi_gpio_0"/>
+        <spirit:monitorInterface spirit:busRef="SLOT_0_GPIO" spirit:componentRef="gpio"/>
+      </spirit:monitorInterconnection>
+      <spirit:monitorInterconnection>
+        <spirit:name>processing_system7_0_IIC_0</spirit:name>
+        <spirit:monitoredActiveInterface spirit:busRef="IIC_0" spirit:componentRef="processing_system7_0"/>
+        <spirit:monitorInterface spirit:busRef="SLOT_0_IIC" spirit:componentRef="i2c"/>
+      </spirit:monitorInterconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
       <spirit:adHocConnection>
@@ -812,17 +837,12 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK0"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="M_AXI_GP0_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="slowest_sync_clk"/>
-        <spirit:internalPortReference spirit:componentRef="axi_gpio_0" spirit:portRef="s_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="i2c" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="gpio" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S00_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="M00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="ACLK"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>proc_sys_reset_0_peripheral_aresetn</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="peripheral_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="axi_gpio_0" spirit:portRef="s_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="M00_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="M00_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="axi_gpio_0" spirit:portRef="s_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
@@ -833,11 +853,18 @@
         <spirit:name>proc_sys_reset_0_interconnect_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="interconnect_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="M00_ARESETN"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_CLK1</spirit:name>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK1"/>
         <spirit:externalPortReference spirit:portRef="XCLK"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>proc_sys_reset_0_peripheral_aresetn</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="proc_sys_reset_0" spirit:portRef="peripheral_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_gpio_0" spirit:portRef="s_axi_aresetn"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -895,11 +922,6 @@
           <spirit:parameter>
             <spirit:name>ASSOCIATED_RESET</spirit:name>
             <spirit:value>ARESETN</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
@@ -942,20 +964,10 @@
           <spirit:parameter>
             <spirit:name>ASSOCIATED_BUSIF</spirit:name>
             <spirit:value>S00_AXI</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>ASSOCIATED_RESET</spirit:name>
             <spirit:value>S00_ARESETN</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
@@ -998,20 +1010,10 @@
           <spirit:parameter>
             <spirit:name>ASSOCIATED_BUSIF</spirit:name>
             <spirit:value>M00_AXI</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>ASSOCIATED_RESET</spirit:name>
             <spirit:value>M00_ARESETN</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
@@ -1166,20 +1168,10 @@
           <spirit:parameter>
             <spirit:name>ASSOCIATED_BUSIF</spirit:name>
             <spirit:value>M_AXI</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>ASSOCIATED_RESET</spirit:name>
             <spirit:value>M_ARESETN</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
@@ -1222,20 +1214,10 @@
           <spirit:parameter>
             <spirit:name>ASSOCIATED_BUSIF</spirit:name>
             <spirit:value>S_AXI</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>ASSOCIATED_RESET</spirit:name>
             <spirit:value>S_ARESETN</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>

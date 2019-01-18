@@ -1,0 +1,16 @@
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.bss=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.data=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.data1=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.fixup=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.rodata=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.rodata1=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.sbss=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.sbss2=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.sdata=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.sdata2=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:.text=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:heap=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:heap-size=512000
+com.xilinx.sdk.linkgen.prefs.mas_camera\:stack=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.mas_camera\:stack-size=512000
+eclipse.preferences.version=1

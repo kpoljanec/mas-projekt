@@ -1,0 +1,23 @@
+17:50:08 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_intr_master_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_intr_master_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_intr_master_example.d" -MT"src/xiicps_intr_master_example.o" -o "src/xiicps_intr_master_example.o" "../src/xiicps_intr_master_example.c"
+'Finished building: ../src/xiicps_intr_master_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_intr_master_example_1.elf"  ./src/xiicps_intr_master_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_intr_master_example_1.elf  |tee "mas_camera_bsp_xiicps_intr_master_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33532	   2740	  23176	  59448	   e838	mas_camera_bsp_xiicps_intr_master_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_intr_master_example_1.elf.size'
+' '
+
+17:50:09 Build Finished (took 1s.177ms)
+

@@ -1,8 +1,8 @@
-18:09:41 **** Incremental Build of configuration Debug for project mas_camera ****
+00:01:11 **** Incremental Build of configuration Debug for project mas_camera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Ništa za napraviti za `main-build'.
 
-18:09:41 Build Finished (took 217ms)
+00:01:12 Build Finished (took 284ms)
 

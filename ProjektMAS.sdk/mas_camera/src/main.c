@@ -2,11 +2,23 @@
 #include "xiicps.h"
 #include "xgpio.h"
 #include "xil_printf.h"
+#include "xstatus.h"
+#include "sleep.h"
 
 XIicPs Iic;
 XGpio Gpio;
 
 void InitCamera();
+void InitRGB();
+void InitColorBar();
+unsigned int CAMERA_isVSYNup(unsigned int camera_read);
+unsigned int CAMERA_isHREFup(unsigned int camera_read);
+unsigned int CAMERA_isPCLKup(unsigned int camera_read);
+int WriteReg(u8 reg, u8 value);
+
+#define READ_CAM XGpio_DiscreteRead(&Gpio, 1)
+#define OV7670_I2C_ADDR 0x21
+#define IIC_SCLK_RATE		100000
 
 /* Registers */
 #define REG_GAIN	0x00	/* Gain lower 8 bits (rest in vref) */
@@ -156,7 +168,7 @@ struct regval_list {
 };
 
 static struct regval_list ov7670_default_regs[] = {
-	//{ REG_COM7, COM7_RESET },
+	{ REG_COM7, COM7_RESET },
 /*
  * Clock scale: 3 = 15fps
  *              2 = 20fps
@@ -342,7 +354,7 @@ static struct regval_list ov7670_image[] = {
 int main(void){
 	int Status;
 	XIicPs_Config *Config;
-	u32 test = 1;
+	u8 Slika[614400];
 
 	/*
 	 * Initialize the IIC driver so that it's ready to use
@@ -364,6 +376,12 @@ int main(void){
 		return XST_FAILURE;
 	}
 
+	// Set the IIC serial clock rate.
+	Status = XIicPs_SetSClk(&Iic, IIC_SCLK_RATE);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
 	Status = XGpio_Initialize(&Gpio, XPAR_AXI_GPIO_0_DEVICE_ID);
 	if (Status != XST_SUCCESS) {
 		xil_printf("Gpio Initialization Failed\r\n");
@@ -372,18 +390,126 @@ int main(void){
 
 	XGpio_SetDataDirection(&Gpio, 1, 0xFFFF);
 
-	test = XGpio_DiscreteRead(&Gpio, 1);
-
 	InitCamera();
+	InitRGB();
 
-	test = XGpio_DiscreteRead(&Gpio, 1);
+	int z;
+	unsigned int tt, tt1;
 
-	xil_printf("blabla %u", test);
+ll:	z=0;
+	while(!CAMERA_isVSYNup(READ_CAM));
+	while(CAMERA_isVSYNup(READ_CAM));
+
+	for(int y = 0; y<480; y++){  //288
+		//Wait line to start
+		if(y<0){
+			xil_printf("y %d z %d\r\n",y,z);
+		}
+		do{
+			tt=READ_CAM;
+			if(CAMERA_isVSYNup(tt)){
+				xil_printf("VSINC error [%d]\r\n",y);
+				goto ll;
+			}
+		}while(!CAMERA_isHREFup(tt));
+
+		//Y[z] =(u8)(tt);
+		//z++;
+		for(int r = 0;r<1280;r++){ //352
+			do{tt=READ_CAM;
+			}
+			while(!CAMERA_isPCLKup(tt)); //while(CAMERA_isPCLKup(tt));
+
+			//---------
+			do{
+				tt1=READ_CAM;
+				if(!CAMERA_isHREFup(tt1) && r!=1279){
+					xil_printf("HREF error [%d]\r\n",r);
+					goto ll;
+				}
+			}while(CAMERA_isPCLKup(tt1));
+
+			//Write data
+			//HMY[z] =(Xuint8)(tt>>3);
+			Slika[z] =(u8)(tt);
+			z++;
+		}
+		while(CAMERA_isHREFup(READ_CAM));
+
+	}
+
+	xil_printf("%d",z);
+	xil_printf("OK !!!\r\n");
+
+	u16 data;
+	for(int i = 0; i < 307200; i++){
+		data = Slika[2*i];
+		data <<= 8;
+		data |= Slika[2*i+1];
+		xil_printf("%u ",data);
+	}
+
+	return 0;
 }
 
 void InitCamera(){
 	int i = 0;
 	while(ov7670_default_regs[i].reg_num != 0xFF) {
-		XIicPs_MasterSend(&Iic, &ov7670_default_regs[i].value, 1, XPAR_PS7_I2C_0_BASEADDR + ov7670_default_regs[i].reg_num);
+		WriteReg(ov7670_default_regs[i].reg_num, ov7670_default_regs[i].value);
+		i++;
 	}
+}
+
+void InitRGB(){
+	int i = 0;
+	while(ov7670_fmt_rgb565[i].reg_num != 0xFF) {
+		WriteReg(ov7670_fmt_rgb565[i].reg_num, ov7670_fmt_rgb565[i].value);
+		i++;
+	}
+}
+
+void InitColorBar(){
+	int i = 0;
+	while(ov7670_test_bar[i].reg_num != 0xFF) {
+		WriteReg(ov7670_test_bar[i].reg_num, ov7670_test_bar[i].value);
+		i++;
+	}
+}
+
+
+
+unsigned int CAMERA_isVSYNup(unsigned int camera_read){
+	return camera_read & 0x400;
+}
+
+unsigned int CAMERA_isHREFup(unsigned int camera_read){
+	return camera_read & 0x200;
+}
+
+unsigned int CAMERA_isPCLKup(unsigned int camera_read){
+	return camera_read & 0x100;
+}
+
+int WriteReg(u8 reg, u8 value)
+{
+	int Status;
+	u8 buff[2];
+
+	buff[0] = reg;
+	buff[1] = value;
+
+	Status = XIicPs_MasterSendPolled(&Iic, buff, 2, OV7670_I2C_ADDR);
+
+	if(Status != XST_SUCCESS){
+		xil_printf("WriteReg:I2C Write Fail\n");
+		return XST_FAILURE;
+	}
+	// Wait until bus is idle to start another transfer.
+	while(XIicPs_BusIsBusy(&Iic)){
+		/* NOP */
+	}
+
+	usleep(30*1000);	// wait 30ms
+
+	return XST_SUCCESS;
 }

@@ -1,23 +1,32 @@
-18:09:09 **** Incremental Build of configuration Debug for project mas_camera ****
+15:24:57 **** Incremental Build of configuration Debug for project mas_camera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 'Building file: ../src/main.c'
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-../src/main.c:336:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+../src/main.c: In function 'main':
+../src/main.c:355:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:354:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:450:6: warning: unused variable 'Status' [-Wunused-variable]
+  u32 Status;
+      ^~~~~~
+At top level:
+../src/main.c:345:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
  static struct regval_list ov7670_image[] = {
                            ^~~~~~~~~~~~
-../src/main.c:329:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+../src/main.c:338:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
  static struct regval_list ov7670_test_bar[] = {
                            ^~~~~~~~~~~~~~~
-../src/main.c:322:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+../src/main.c:331:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
  static struct regval_list ov7670_test_shift[] = {
                            ^~~~~~~~~~~~~~~~~
-../src/main.c:304:27: warning: 'ov7670_fmt_rgb565' defined but not used [-Wunused-variable]
- static struct regval_list ov7670_fmt_rgb565[] = {
-                           ^~~~~~~~~~~~~~~~~
-../src/main.c:286:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+../src/main.c:295:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
  static struct regval_list ov7670_fmt_yuv422[] = {
                            ^~~~~~~~~~~~~~~~~
 'Finished building: ../src/main.c'
@@ -30,15 +39,2637 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  28992	   1580	  22664	  53236	   cff4	mas_camera.elf
+  30060	   1580	 723080	 754720	  b8420	mas_camera.elf
 'Finished building: mas_camera.elf.size'
 ' '
-18:09:15 **** Incremental Build of configuration Debug for project mas_camera ****
+15:25:04 **** Build of configuration Debug for project mas_camera_bsp_xgpio_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xgpio_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xgpio_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xgpio_example.d" -MT"src/xgpio_example.o" -o "src/xgpio_example.o" "../src/xgpio_example.c"
+'Finished building: ../src/xgpio_example.c'
+' '
+'Building target: mas_camera_bsp_xgpio_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xgpio_example_1.elf"  ./src/xgpio_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xgpio_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xgpio_example_1.elf  |tee "mas_camera_bsp_xgpio_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23712	   1172	  22600	  47484	   b97c	mas_camera_bsp_xgpio_example_1.elf
+'Finished building: mas_camera_bsp_xgpio_example_1.elf.size'
+' '
+15:25:05 **** Build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_intr_master_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_intr_master_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_intr_master_example.d" -MT"src/xiicps_intr_master_example.o" -o "src/xiicps_intr_master_example.o" "../src/xiicps_intr_master_example.c"
+'Finished building: ../src/xiicps_intr_master_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_intr_master_example_1.elf"  ./src/xiicps_intr_master_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_intr_master_example_1.elf  |tee "mas_camera_bsp_xiicps_intr_master_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33532	   2740	  23176	  59448	   e838	mas_camera_bsp_xiicps_intr_master_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_intr_master_example_1.elf.size'
+' '
+15:25:06 **** Build of configuration Debug for project mas_camera_bsp_xiicps_polled_master_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_polled_master_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_polled_master_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_polled_master_example.d" -MT"src/xiicps_polled_master_example.o" -o "src/xiicps_polled_master_example.o" "../src/xiicps_polled_master_example.c"
+'Finished building: ../src/xiicps_polled_master_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_polled_master_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_polled_master_example_1.elf"  ./src/xiicps_polled_master_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_polled_master_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_polled_master_example_1.elf  |tee "mas_camera_bsp_xiicps_polled_master_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  28284	   1164	  22904	  52352	   cc80	mas_camera_bsp_xiicps_polled_master_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_polled_master_example_1.elf.size'
+' '
+15:25:07 **** Build of configuration Debug for project mas_camera_bsp_xiicps_polled_slave_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_polled_slave_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_polled_slave_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_polled_slave_example.d" -MT"src/xiicps_polled_slave_example.o" -o "src/xiicps_polled_slave_example.o" "../src/xiicps_polled_slave_example.c"
+'Finished building: ../src/xiicps_polled_slave_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_polled_slave_example_1.elf"  ./src/xiicps_polled_slave_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_polled_slave_example_1.elf  |tee "mas_camera_bsp_xiicps_polled_slave_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27068	   1164	  23144	  51376	   c8b0	mas_camera_bsp_xiicps_polled_slave_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_polled_slave_example_1.elf.size'
+' '
+15:25:09 **** Build of configuration Debug for project mas_camera_bsp_xiicps_repeated_start_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_repeated_start_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_repeated_start_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_repeated_start_example.d" -MT"src/xiicps_repeated_start_example.o" -o "src/xiicps_repeated_start_example.o" "../src/xiicps_repeated_start_example.c"
+'Finished building: ../src/xiicps_repeated_start_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_repeated_start_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_repeated_start_example_1.elf"  ./src/xiicps_repeated_start_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_repeated_start_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_repeated_start_example_1.elf  |tee "mas_camera_bsp_xiicps_repeated_start_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  29420	   1164	  22984	  53568	   d140	mas_camera_bsp_xiicps_repeated_start_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_repeated_start_example_1.elf.size'
+' '
+15:25:10 **** Build of configuration Debug for project mas_camera_bsp_xiicps_selftest_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_selftest_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_selftest_example.d" -MT"src/xiicps_selftest_example.o" -o "src/xiicps_selftest_example.o" "../src/xiicps_selftest_example.c"
+'Finished building: ../src/xiicps_selftest_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_selftest_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_selftest_example_1.elf"  ./src/xiicps_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_selftest_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_selftest_example_1.elf  |tee "mas_camera_bsp_xiicps_selftest_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24784	   1164	  22648	  48596	   bdd4	mas_camera_bsp_xiicps_selftest_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_selftest_example_1.elf.size'
+' '
+15:25:11 **** Build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_slave_monitor_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_slave_monitor_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_slave_monitor_example.d" -MT"src/xiicps_slave_monitor_example.o" -o "src/xiicps_slave_monitor_example.o" "../src/xiicps_slave_monitor_example.c"
+'Finished building: ../src/xiicps_slave_monitor_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_slave_monitor_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_slave_monitor_example_1.elf"  ./src/xiicps_slave_monitor_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_slave_monitor_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_slave_monitor_example_1.elf  |tee "mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  31856	   2748	  22728	  57332	   dff4	mas_camera_bsp_xiicps_slave_monitor_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size'
+' '
+15:25:24 **** Incremental Build of configuration Debug for project mas_camera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Ništa za napraviti za `main-build'.
-18:09:41 **** Incremental Build of configuration Debug for project mas_camera ****
+15:26:12 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:09:42 **** Clean-only build of project mas_camera_bsp ****
+make -k clean 
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/iicps_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+16:09:45 **** Clean-only build of configuration Debug for project mas_camera ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  mas_camera.elf.size  mas_camera.elf
+' '
+16:09:45 **** Clean-only build of configuration Debug for project mas_camera_bsp_xgpio_example_1 ****
+make clean 
+rm -rf  ./src/xgpio_example.o  ./src/xgpio_example.d  mas_camera_bsp_xgpio_example_1.elf.size  mas_camera_bsp_xgpio_example_1.elf
+' '
+16:09:46 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_intr_master_example.o  ./src/xiicps_intr_master_example.d  mas_camera_bsp_xiicps_intr_master_example_1.elf.size  mas_camera_bsp_xiicps_intr_master_example_1.elf
+' '
+16:09:46 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_polled_master_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_polled_master_example.o  ./src/xiicps_polled_master_example.d  mas_camera_bsp_xiicps_polled_master_example_1.elf.size  mas_camera_bsp_xiicps_polled_master_example_1.elf
+' '
+16:09:46 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_polled_slave_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_polled_slave_example.o  ./src/xiicps_polled_slave_example.d  mas_camera_bsp_xiicps_polled_slave_example_1.elf.size  mas_camera_bsp_xiicps_polled_slave_example_1.elf
+' '
+16:09:46 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_repeated_start_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_repeated_start_example.o  ./src/xiicps_repeated_start_example.d  mas_camera_bsp_xiicps_repeated_start_example_1.elf.size  mas_camera_bsp_xiicps_repeated_start_example_1.elf
+' '
+16:09:46 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_selftest_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_selftest_example.o  ./src/xiicps_selftest_example.d  mas_camera_bsp_xiicps_selftest_example_1.elf.size  mas_camera_bsp_xiicps_selftest_example_1.elf
+' '
+16:09:47 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_slave_monitor_example.o  ./src/xiicps_slave_monitor_example.d  mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size  mas_camera_bsp_xiicps_slave_monitor_example_1.elf
+' '
+16:09:47 **** Build of project mas_camera_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling gpio"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling iicps"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+16:10:16 **** Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:355:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:354:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:450:6: warning: unused variable 'Status' [-Wunused-variable]
+  u32 Status;
+      ^~~~~~
+At top level:
+../src/main.c:345:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:338:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:331:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:295:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30060	   1580	 723080	 754720	  b8420	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:10:18 **** Build of configuration Debug for project mas_camera_bsp_xgpio_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xgpio_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xgpio_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xgpio_example.d" -MT"src/xgpio_example.o" -o "src/xgpio_example.o" "../src/xgpio_example.c"
+'Finished building: ../src/xgpio_example.c'
+' '
+'Building target: mas_camera_bsp_xgpio_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xgpio_example_1.elf"  ./src/xgpio_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xgpio_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xgpio_example_1.elf  |tee "mas_camera_bsp_xgpio_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23712	   1172	  22600	  47484	   b97c	mas_camera_bsp_xgpio_example_1.elf
+'Finished building: mas_camera_bsp_xgpio_example_1.elf.size'
+' '
+16:10:19 **** Build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_intr_master_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_intr_master_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_intr_master_example.d" -MT"src/xiicps_intr_master_example.o" -o "src/xiicps_intr_master_example.o" "../src/xiicps_intr_master_example.c"
+'Finished building: ../src/xiicps_intr_master_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_intr_master_example_1.elf"  ./src/xiicps_intr_master_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_intr_master_example_1.elf  |tee "mas_camera_bsp_xiicps_intr_master_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33532	   2740	  23176	  59448	   e838	mas_camera_bsp_xiicps_intr_master_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_intr_master_example_1.elf.size'
+' '
+16:10:21 **** Build of configuration Debug for project mas_camera_bsp_xiicps_polled_master_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_polled_master_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_polled_master_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_polled_master_example.d" -MT"src/xiicps_polled_master_example.o" -o "src/xiicps_polled_master_example.o" "../src/xiicps_polled_master_example.c"
+'Finished building: ../src/xiicps_polled_master_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_polled_master_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_polled_master_example_1.elf"  ./src/xiicps_polled_master_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_polled_master_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_polled_master_example_1.elf  |tee "mas_camera_bsp_xiicps_polled_master_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  28284	   1164	  22904	  52352	   cc80	mas_camera_bsp_xiicps_polled_master_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_polled_master_example_1.elf.size'
+' '
+16:10:22 **** Build of configuration Debug for project mas_camera_bsp_xiicps_polled_slave_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_polled_slave_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_polled_slave_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_polled_slave_example.d" -MT"src/xiicps_polled_slave_example.o" -o "src/xiicps_polled_slave_example.o" "../src/xiicps_polled_slave_example.c"
+'Finished building: ../src/xiicps_polled_slave_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_polled_slave_example_1.elf"  ./src/xiicps_polled_slave_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_polled_slave_example_1.elf  |tee "mas_camera_bsp_xiicps_polled_slave_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27068	   1164	  23144	  51376	   c8b0	mas_camera_bsp_xiicps_polled_slave_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_polled_slave_example_1.elf.size'
+' '
+16:10:23 **** Build of configuration Debug for project mas_camera_bsp_xiicps_repeated_start_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_repeated_start_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_repeated_start_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_repeated_start_example.d" -MT"src/xiicps_repeated_start_example.o" -o "src/xiicps_repeated_start_example.o" "../src/xiicps_repeated_start_example.c"
+'Finished building: ../src/xiicps_repeated_start_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_repeated_start_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_repeated_start_example_1.elf"  ./src/xiicps_repeated_start_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_repeated_start_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_repeated_start_example_1.elf  |tee "mas_camera_bsp_xiicps_repeated_start_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  29420	   1164	  22984	  53568	   d140	mas_camera_bsp_xiicps_repeated_start_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_repeated_start_example_1.elf.size'
+' '
+16:10:24 **** Build of configuration Debug for project mas_camera_bsp_xiicps_selftest_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_selftest_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_selftest_example.d" -MT"src/xiicps_selftest_example.o" -o "src/xiicps_selftest_example.o" "../src/xiicps_selftest_example.c"
+'Finished building: ../src/xiicps_selftest_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_selftest_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_selftest_example_1.elf"  ./src/xiicps_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_selftest_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_selftest_example_1.elf  |tee "mas_camera_bsp_xiicps_selftest_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24784	   1164	  22648	  48596	   bdd4	mas_camera_bsp_xiicps_selftest_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_selftest_example_1.elf.size'
+' '
+16:10:25 **** Build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_slave_monitor_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_slave_monitor_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_slave_monitor_example.d" -MT"src/xiicps_slave_monitor_example.o" -o "src/xiicps_slave_monitor_example.o" "../src/xiicps_slave_monitor_example.c"
+'Finished building: ../src/xiicps_slave_monitor_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_slave_monitor_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_slave_monitor_example_1.elf"  ./src/xiicps_slave_monitor_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_slave_monitor_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_slave_monitor_example_1.elf  |tee "mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  31856	   2748	  22728	  57332	   dff4	mas_camera_bsp_xiicps_slave_monitor_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size'
+' '
+16:12:50 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:355:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:354:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:450:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  u32 Status;
+      ^~~~~~
+../src/main.c: In function 'WriteReg':
+../src/main.c:495:50: error: 'OV7670ADDR' undeclared (first use in this function)
+  Status = XIicPs_MasterSendPolled(&Iic, buff, 2, OV7670ADDR);
+                                                  ^~~~~~~~~~
+../src/main.c:495:50: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:506:2: warning: implicit declaration of function 'usleep' [-Wimplicit-function-declaration]
+  usleep(30*1000); // wait 30ms
+  ^~~~~~
+At top level:
+../src/main.c:345:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:338:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:331:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:295:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+16:13:04 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:356:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:355:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:451:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  u32 Status;
+      ^~~~~~
+../src/main.c: In function 'WriteReg':
+../src/main.c:496:50: error: 'OV7670ADDR' undeclared (first use in this function)
+  Status = XIicPs_MasterSendPolled(&Iic, buff, 2, OV7670ADDR);
+                                                  ^~~~~~~~~~
+../src/main.c:496:50: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:507:2: warning: implicit declaration of function 'usleep' [-Wimplicit-function-declaration]
+  usleep(30*1000); // wait 30ms
+  ^~~~~~
+At top level:
+../src/main.c:346:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:339:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:332:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:296:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+16:13:15 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:356:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:355:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:451:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  u32 Status;
+      ^~~~~~
+../src/main.c: In function 'WriteReg':
+../src/main.c:507:2: warning: implicit declaration of function 'usleep' [-Wimplicit-function-declaration]
+  usleep(30*1000); // wait 30ms
+  ^~~~~~
+At top level:
+../src/main.c:346:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:339:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:332:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:296:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30280	   1580	 723080	 754940	  b84fc	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:13:30 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:452:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  u32 Status;
+      ^~~~~~
+../src/main.c: In function 'WriteReg':
+../src/main.c:508:2: warning: implicit declaration of function 'usleep' [-Wimplicit-function-declaration]
+  usleep(30*1000); // wait 30ms
+  ^~~~~~
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30280	   1580	 723080	 754940	  b84fc	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:13:54 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:452:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  u32 Status;
+      ^~~~~~
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30280	   1580	 723080	 754940	  b84fc	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:14:48 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+../src/main.c: In function 'InitCamera':
+../src/main.c:451:5: warning: unused variable 'sendBuffer' [-Wunused-variable]
+  u8 sendBuffer[2];
+     ^~~~~~~~~~
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30216	   1580	 723080	 754876	  b84bc	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:14:53 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30216	   1580	 723080	 754876	  b84bc	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:15:24 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30152	   1580	 723080	 754812	  b847c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:15:49 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:17:55 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:19:31 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30016	   1580	 723080	 754676	  b83f4	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:19:36 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:20:40 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30020	   1580	 723080	 754680	  b83f8	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:20:45 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:21:57 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:23:17 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:23:55 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:24:16 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:24:36 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:26:23 **** Clean-only build of configuration Debug for project mas_camera ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  mas_camera.elf.size  mas_camera.elf
+' '
+16:26:23 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30020	   1580	1030280	1061880	 1033f8	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:26:28 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:28:13 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:357:5: warning: unused variable 'Data' [-Wunused-variable]
+  u8 Data = 0x2;
+     ^~~~
+../src/main.c:356:16: warning: variable 'Y' set but not used [-Wunused-but-set-variable]
+  unsigned char Y[307200];
+                ^
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30096	   1580	1030280	1061956	 103444	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:28:16 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:30:55 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:356:16: warning: variable 'Slika' set but not used [-Wunused-but-set-variable]
+  unsigned char Slika[307200];
+                ^~~~~
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30096	   1580	1030280	1061956	 103444	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+16:31:00 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+17:49:32 **** Auto Build of project mas_camera_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/lwip141_v2_0/src"
+make -C ps7_cortexa9_0/libsrc/lwip141_v2_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling gpio"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling iicps"
+"Running Make libs in ps7_cortexa9_0/libsrc/lwip141_v2_0/src"
+make -C ps7_cortexa9_0/libsrc/lwip141_v2_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling lwip src and adapter files"
+In file included from ../../../include/xemacps.h:348:0,
+                 from ../../../include/netif/xemacpsif.h:59,
+                 from contrib/ports/xilinx/netif/xemacpsif_dma.c:39:
+contrib/ports/xilinx/netif/xemacpsif_dma.c: In function 'init_dma':
+../../../include/xemacps_bd.h:163:62: warning: 'bdrxterminate' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     (*(u32 *)((UINTPTR)(void*)(BaseAddress) + (u32)(Offset)) = (u32)(Data))
+                                                              ^
+contrib/ports/xilinx/netif/xemacpsif_dma.c:558:14: note: 'bdrxterminate' was declared here
+  XEmacPs_Bd *bdrxterminate;
+              ^~~~~~~~~~~~~
+In file included from ../../../include/xemacps.h:348:0,
+                 from ../../../include/netif/xemacpsif.h:59,
+                 from contrib/ports/xilinx/netif/xemacpsif_dma.c:39:
+../../../include/xemacps_bd.h:163:15: warning: 'bdtxterminate' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     (*(u32 *)((UINTPTR)(void*)(BaseAddress) + (u32)(Offset)) = (u32)(Data))
+               ^
+contrib/ports/xilinx/netif/xemacpsif_dma.c:557:14: note: 'bdtxterminate' was declared here
+  XEmacPs_Bd *bdtxterminate;
+              ^~~~~~~~~~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_8/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_5/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+17:50:04 **** Clean-only build of configuration Debug for project mas_camera ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  mas_camera.elf.size  mas_camera.elf
+' '
+17:50:05 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:356:16: warning: variable 'Slika' set but not used [-Wunused-but-set-variable]
+  unsigned char Slika[307200];
+                ^~~~~
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30096	   1580	1030280	1061956	 103444	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+17:50:06 **** Clean-only build of configuration Debug for project mas_camera_bsp_xgpio_example_1 ****
+make clean 
+rm -rf  ./src/xgpio_example.o  ./src/xgpio_example.d  mas_camera_bsp_xgpio_example_1.elf.size  mas_camera_bsp_xgpio_example_1.elf
+' '
+17:50:06 **** Auto Build of configuration Debug for project mas_camera_bsp_xgpio_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xgpio_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xgpio_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xgpio_example.d" -MT"src/xgpio_example.o" -o "src/xgpio_example.o" "../src/xgpio_example.c"
+'Finished building: ../src/xgpio_example.c'
+' '
+'Building target: mas_camera_bsp_xgpio_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xgpio_example_1.elf"  ./src/xgpio_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xgpio_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xgpio_example_1.elf  |tee "mas_camera_bsp_xgpio_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23712	   1172	  22600	  47484	   b97c	mas_camera_bsp_xgpio_example_1.elf
+'Finished building: mas_camera_bsp_xgpio_example_1.elf.size'
+' '
+17:50:08 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_intr_master_example.o  ./src/xiicps_intr_master_example.d  mas_camera_bsp_xiicps_intr_master_example_1.elf.size  mas_camera_bsp_xiicps_intr_master_example_1.elf
+' '
+17:50:08 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_intr_master_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_intr_master_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_intr_master_example.d" -MT"src/xiicps_intr_master_example.o" -o "src/xiicps_intr_master_example.o" "../src/xiicps_intr_master_example.c"
+'Finished building: ../src/xiicps_intr_master_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_intr_master_example_1.elf"  ./src/xiicps_intr_master_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_intr_master_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_intr_master_example_1.elf  |tee "mas_camera_bsp_xiicps_intr_master_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33532	   2740	  23176	  59448	   e838	mas_camera_bsp_xiicps_intr_master_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_intr_master_example_1.elf.size'
+' '
+17:50:09 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_polled_master_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_polled_master_example.o  ./src/xiicps_polled_master_example.d  mas_camera_bsp_xiicps_polled_master_example_1.elf.size  mas_camera_bsp_xiicps_polled_master_example_1.elf
+' '
+17:50:09 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_polled_master_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_polled_master_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_polled_master_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_polled_master_example.d" -MT"src/xiicps_polled_master_example.o" -o "src/xiicps_polled_master_example.o" "../src/xiicps_polled_master_example.c"
+'Finished building: ../src/xiicps_polled_master_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_polled_master_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_polled_master_example_1.elf"  ./src/xiicps_polled_master_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_polled_master_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_polled_master_example_1.elf  |tee "mas_camera_bsp_xiicps_polled_master_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  28284	   1164	  22904	  52352	   cc80	mas_camera_bsp_xiicps_polled_master_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_polled_master_example_1.elf.size'
+' '
+17:50:10 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_polled_slave_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_polled_slave_example.o  ./src/xiicps_polled_slave_example.d  mas_camera_bsp_xiicps_polled_slave_example_1.elf.size  mas_camera_bsp_xiicps_polled_slave_example_1.elf
+' '
+17:50:11 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_polled_slave_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_polled_slave_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_polled_slave_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_polled_slave_example.d" -MT"src/xiicps_polled_slave_example.o" -o "src/xiicps_polled_slave_example.o" "../src/xiicps_polled_slave_example.c"
+'Finished building: ../src/xiicps_polled_slave_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_polled_slave_example_1.elf"  ./src/xiicps_polled_slave_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_polled_slave_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_polled_slave_example_1.elf  |tee "mas_camera_bsp_xiicps_polled_slave_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27068	   1164	  23144	  51376	   c8b0	mas_camera_bsp_xiicps_polled_slave_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_polled_slave_example_1.elf.size'
+' '
+17:50:12 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_repeated_start_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_repeated_start_example.o  ./src/xiicps_repeated_start_example.d  mas_camera_bsp_xiicps_repeated_start_example_1.elf.size  mas_camera_bsp_xiicps_repeated_start_example_1.elf
+' '
+17:50:12 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_repeated_start_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_repeated_start_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_repeated_start_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_repeated_start_example.d" -MT"src/xiicps_repeated_start_example.o" -o "src/xiicps_repeated_start_example.o" "../src/xiicps_repeated_start_example.c"
+'Finished building: ../src/xiicps_repeated_start_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_repeated_start_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_repeated_start_example_1.elf"  ./src/xiicps_repeated_start_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_repeated_start_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_repeated_start_example_1.elf  |tee "mas_camera_bsp_xiicps_repeated_start_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  29420	   1164	  22984	  53568	   d140	mas_camera_bsp_xiicps_repeated_start_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_repeated_start_example_1.elf.size'
+' '
+17:50:13 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_selftest_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_selftest_example.o  ./src/xiicps_selftest_example.d  mas_camera_bsp_xiicps_selftest_example_1.elf.size  mas_camera_bsp_xiicps_selftest_example_1.elf
+' '
+17:50:13 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_selftest_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_selftest_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_selftest_example.d" -MT"src/xiicps_selftest_example.o" -o "src/xiicps_selftest_example.o" "../src/xiicps_selftest_example.c"
+'Finished building: ../src/xiicps_selftest_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_selftest_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_selftest_example_1.elf"  ./src/xiicps_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_selftest_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_selftest_example_1.elf  |tee "mas_camera_bsp_xiicps_selftest_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24784	   1164	  22648	  48596	   bdd4	mas_camera_bsp_xiicps_selftest_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_selftest_example_1.elf.size'
+' '
+17:50:14 **** Clean-only build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
+make clean 
+rm -rf  ./src/xiicps_slave_monitor_example.o  ./src/xiicps_slave_monitor_example.d  mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size  mas_camera_bsp_xiicps_slave_monitor_example_1.elf
+' '
+17:50:15 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xiicps_slave_monitor_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_slave_monitor_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_slave_monitor_example.d" -MT"src/xiicps_slave_monitor_example.o" -o "src/xiicps_slave_monitor_example.o" "../src/xiicps_slave_monitor_example.c"
+'Finished building: ../src/xiicps_slave_monitor_example.c'
+' '
+'Building target: mas_camera_bsp_xiicps_slave_monitor_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xiicps_slave_monitor_example_1.elf"  ./src/xiicps_slave_monitor_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xiicps_slave_monitor_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xiicps_slave_monitor_example_1.elf  |tee "mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  31856	   2748	  22728	  57332	   dff4	mas_camera_bsp_xiicps_slave_monitor_example_1.elf
+'Finished building: mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size'
+' '
+17:51:15 **** Build of configuration Debug for project ethernet ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/echo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/echo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/echo.d" -MT"src/echo.o" -o "src/echo.o" "../src/echo.c"
+'Finished building: ../src/echo.c'
+' '
+'Building file: ../src/i2c_access.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_access.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_access.d" -MT"src/i2c_access.o" -o "src/i2c_access.o" "../src/i2c_access.c"
+'Finished building: ../src/i2c_access.c'
+' '
+'Building file: ../src/iic_phyreset.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/iic_phyreset.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/iic_phyreset.d" -MT"src/iic_phyreset.o" -o "src/iic_phyreset.o" "../src/iic_phyreset.c"
+'Finished building: ../src/iic_phyreset.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/platform_mb.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_mb.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_mb.d" -MT"src/platform_mb.o" -o "src/platform_mb.o" "../src/platform_mb.c"
+'Finished building: ../src/platform_mb.c'
+' '
+'Building file: ../src/platform_ppc.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_ppc.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_ppc.d" -MT"src/platform_ppc.o" -o "src/platform_ppc.o" "../src/platform_ppc.c"
+'Finished building: ../src/platform_ppc.c'
+' '
+'Building file: ../src/platform_zynq.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynq.d" -MT"src/platform_zynq.o" -o "src/platform_zynq.o" "../src/platform_zynq.c"
+'Finished building: ../src/platform_zynq.c'
+' '
+'Building file: ../src/platform_zynqmp.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynqmp.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynqmp.d" -MT"src/platform_zynqmp.o" -o "src/platform_zynqmp.o" "../src/platform_zynqmp.c"
+'Finished building: ../src/platform_zynqmp.c'
+' '
+'Building file: ../src/sfp.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/sfp.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/sfp.d" -MT"src/sfp.o" -o "src/sfp.o" "../src/sfp.c"
+'Finished building: ../src/sfp.c'
+' '
+'Building file: ../src/si5324.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/si5324.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/si5324.d" -MT"src/si5324.o" -o "src/si5324.o" "../src/si5324.c"
+'Finished building: ../src/si5324.c'
+' '
+'Building target: ethernet.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "ethernet.elf"  ./src/echo.o ./src/i2c_access.o ./src/iic_phyreset.o ./src/main.o ./src/platform.o ./src/platform_mb.o ./src/platform_ppc.o ./src/platform_zynq.o ./src/platform_zynqmp.o ./src/sfp.o ./src/si5324.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: ethernet.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size ethernet.elf  |tee "ethernet.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  96652	   3836	2218288	2318776	 2361b8	ethernet.elf
+'Finished building: ethernet.elf.size'
+' '
+17:54:04 **** Build of configuration Debug for project mas_camera_bsp_xemacps_ieee1588_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xemacps_example_util.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_util.d" -MT"src/xemacps_example_util.o" -o "src/xemacps_example_util.o" "../src/xemacps_example_util.c"
+'Finished building: ../src/xemacps_example_util.c'
+' '
+'Building file: ../src/xemacps_ieee1588.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_ieee1588.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_ieee1588.d" -MT"src/xemacps_ieee1588.o" -o "src/xemacps_ieee1588.o" "../src/xemacps_ieee1588.c"
+../src/xemacps_ieee1588.c: In function 'XEmacPs_MasterSendAnnounce':
+../src/xemacps_ieee1588.c:204:6: warning: variable 'SeqId' set but not used [-Wunused-but-set-variable]
+  u16 SeqId = 0;
+      ^~~~~
+../src/xemacps_ieee1588.c: In function 'XEmacPs_MasterSendSync':
+../src/xemacps_ieee1588.c:238:6: warning: variable 'SeqId' set but not used [-Wunused-but-set-variable]
+  u16 SeqId = 0;
+      ^~~~~
+'Finished building: ../src/xemacps_ieee1588.c'
+' '
+'Building file: ../src/xemacps_ieee1588_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_ieee1588_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_ieee1588_example.d" -MT"src/xemacps_ieee1588_example.o" -o "src/xemacps_ieee1588_example.o" "../src/xemacps_ieee1588_example.c"
+../src/xemacps_ieee1588_example.c: In function 'XEmacPs_HandleRecdPTPPacket':
+../src/xemacps_ieee1588_example.c:1411:18: warning: variable 'TxRingPtr' set but not used [-Wunused-but-set-variable]
+  XEmacPs_BdRing *TxRingPtr;
+                  ^~~~~~~~~
+../src/xemacps_ieee1588_example.c: In function 'XEmacPs_PtpTxInterruptHandler':
+../src/xemacps_ieee1588_example.c:1641:6: warning: variable 'BufLen' set but not used [-Wunused-but-set-variable]
+  int BufLen;
+      ^~~~~~
+../src/xemacps_ieee1588_example.c: In function 'XEmacPs_PtpTxPacket':
+../src/xemacps_ieee1588_example.c:1842:5: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+     while((XEmacPs_ReadReg(InstancePtr->EmacPsInstance->Config.BaseAddress,
+     ^~~~~
+../src/xemacps_ieee1588_example.c:1845:2: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the 'while'
+  TxRingPtr = &(XEmacPs_GetTxRing(InstancePtr->EmacPsInstance));
+  ^~~~~~~~~
+'Finished building: ../src/xemacps_ieee1588_example.c'
+' '
+'Building target: mas_camera_bsp_xemacps_ieee1588_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xemacps_ieee1588_example_1.elf"  ./src/xemacps_example_util.o ./src/xemacps_ieee1588.o ./src/xemacps_ieee1588_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xemacps_ieee1588_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xemacps_ieee1588_example_1.elf  |tee "mas_camera_bsp_xemacps_ieee1588_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64500	   2780	  50640	 117920	  1cca0	mas_camera_bsp_xemacps_ieee1588_example_1.elf
+'Finished building: mas_camera_bsp_xemacps_ieee1588_example_1.elf.size'
+' '
+17:55:39 **** Auto Build of configuration Debug for project ethernet ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: ethernet.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "ethernet.elf"  ./src/echo.o ./src/i2c_access.o ./src/iic_phyreset.o ./src/main.o ./src/platform.o ./src/platform_mb.o ./src/platform_ppc.o ./src/platform_zynq.o ./src/platform_zynqmp.o ./src/sfp.o ./src/si5324.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: ethernet.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size ethernet.elf  |tee "ethernet.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  96652	   3836	2218288	2318776	 2361b8	ethernet.elf
+'Finished building: ethernet.elf.size'
+' '
+18:03:06 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30296	   1580	1030280	1062156	 10350c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:05:27 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30292	   1580	1030280	1062152	 103508	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:05:47 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:07:15 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:07:43 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:09:30 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30296	   1580	1030280	1062156	 10350c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:11:00 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30296	   1580	1030280	1062156	 10350c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:11:03 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:14:20 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30296	   1580	1030280	1062156	 10350c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:14:29 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:14:41 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:19:08 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30364	   1580	1030280	1062224	 103550	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:19:20 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:21:43 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30296	   1580	1030280	1062156	 10350c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:21:49 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:23:37 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:448:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf("%c",(data & 0xF800) >> 11);
+   ^~~~~~
+../src/main.c:448:3: warning: incompatible implicit declaration of built-in function 'printf'
+../src/main.c:448:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  37980	   2620	1030328	1070928	 105750	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:23:49 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:348:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:341:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:334:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:298:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  37980	   2620	1030328	1070928	 105750	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:24:00 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:348:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:341:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:334:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:298:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  37976	   2620	1030328	1070924	 10574c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:24:04 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:24:41 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:27:42 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30364	   1580	1030280	1062224	 103550	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:27:51 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:31:24 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30364	   1580	1030280	1062224	 103550	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:31:35 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:36:36 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30492	   1580	1030280	1062352	 1035d0	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:36:47 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:39:18 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:456:16: error: expected statement before ')' token
+   if(cnt == 60)){
+                ^
+../src/main.c:456:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+   if(cnt == 60)){
+   ^~
+../src/main.c:456:17: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the 'if'
+   if(cnt == 60)){
+                 ^
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:39:23 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30428	   1580	1030280	1062288	 103590	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:39:36 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:54:58 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'InitColorBar':
+../src/main.c:482:8: error: 'ov7670_fmt_test_bar' undeclared (first use in this function)
+  while(ov7670_fmt_test_bar[i].reg_num != 0xFF) {
+        ^~~~~~~~~~~~~~~~~~~
+../src/main.c:482:8: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:340:27: warning: 'ov7670_test_bar' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_bar[] = {
+                           ^~~~~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:55:08 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'InitColorBar':
+../src/main.c:483:12: error: 'ov7670_fmt_test_bar' undeclared (first use in this function)
+   WriteReg(ov7670_fmt_test_bar[i].reg_num, ov7670_fmt_test_bar[i].value);
+            ^~~~~~~~~~~~~~~~~~~
+../src/main.c:483:12: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:55:12 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30556	   1580	1030280	1062416	 103610	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+18:56:06 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+20:00:49 **** Clean-only build of configuration Debug for project mas_camera_bsp_xemacps_ieee1588_example_1 ****
+make clean 
+rm -rf  ./src/xemacps_example_util.o ./src/xemacps_ieee1588.o ./src/xemacps_ieee1588_example.o  ./src/xemacps_example_util.d ./src/xemacps_ieee1588.d ./src/xemacps_ieee1588_example.d  mas_camera_bsp_xemacps_ieee1588_example_1.elf.size  mas_camera_bsp_xemacps_ieee1588_example_1.elf
+' '
+20:00:51 **** Incremental Build of configuration Debug for project mas_camera_bsp_xemacps_ieee1588_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/xemacps_example_util.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_util.d" -MT"src/xemacps_example_util.o" -o "src/xemacps_example_util.o" "../src/xemacps_example_util.c"
+'Finished building: ../src/xemacps_example_util.c'
+' '
+'Building file: ../src/xemacps_ieee1588.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_ieee1588.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_ieee1588.d" -MT"src/xemacps_ieee1588.o" -o "src/xemacps_ieee1588.o" "../src/xemacps_ieee1588.c"
+../src/xemacps_ieee1588.c: In function 'XEmacPs_MasterSendAnnounce':
+../src/xemacps_ieee1588.c:204:6: warning: variable 'SeqId' set but not used [-Wunused-but-set-variable]
+  u16 SeqId = 0;
+      ^~~~~
+../src/xemacps_ieee1588.c: In function 'XEmacPs_MasterSendSync':
+../src/xemacps_ieee1588.c:238:6: warning: variable 'SeqId' set but not used [-Wunused-but-set-variable]
+  u16 SeqId = 0;
+      ^~~~~
+'Finished building: ../src/xemacps_ieee1588.c'
+' '
+'Building file: ../src/xemacps_ieee1588_example.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_ieee1588_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_ieee1588_example.d" -MT"src/xemacps_ieee1588_example.o" -o "src/xemacps_ieee1588_example.o" "../src/xemacps_ieee1588_example.c"
+../src/xemacps_ieee1588_example.c: In function 'XEmacPs_HandleRecdPTPPacket':
+../src/xemacps_ieee1588_example.c:1411:18: warning: variable 'TxRingPtr' set but not used [-Wunused-but-set-variable]
+  XEmacPs_BdRing *TxRingPtr;
+                  ^~~~~~~~~
+../src/xemacps_ieee1588_example.c: In function 'XEmacPs_PtpTxInterruptHandler':
+../src/xemacps_ieee1588_example.c:1641:6: warning: variable 'BufLen' set but not used [-Wunused-but-set-variable]
+  int BufLen;
+      ^~~~~~
+../src/xemacps_ieee1588_example.c: In function 'XEmacPs_PtpTxPacket':
+../src/xemacps_ieee1588_example.c:1842:5: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+     while((XEmacPs_ReadReg(InstancePtr->EmacPsInstance->Config.BaseAddress,
+     ^~~~~
+../src/xemacps_ieee1588_example.c:1845:2: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the 'while'
+  TxRingPtr = &(XEmacPs_GetTxRing(InstancePtr->EmacPsInstance));
+  ^~~~~~~~~
+'Finished building: ../src/xemacps_ieee1588_example.c'
+' '
+'Building target: mas_camera_bsp_xemacps_ieee1588_example_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera_bsp_xemacps_ieee1588_example_1.elf"  ./src/xemacps_example_util.o ./src/xemacps_ieee1588.o ./src/xemacps_ieee1588_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera_bsp_xemacps_ieee1588_example_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera_bsp_xemacps_ieee1588_example_1.elf  |tee "mas_camera_bsp_xemacps_ieee1588_example_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  64500	   2780	  50640	 117920	  1cca0	mas_camera_bsp_xemacps_ieee1588_example_1.elf
+'Finished building: mas_camera_bsp_xemacps_ieee1588_example_1.elf.size'
+' '
+20:01:22 **** Incremental Build of configuration Debug for project mas_camera_bsp_xemacps_ieee1588_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+20:02:55 **** Clean-only build of configuration Debug for project ethernet ****
+make clean 
+rm -rf  ./src/echo.o ./src/i2c_access.o ./src/iic_phyreset.o ./src/main.o ./src/platform.o ./src/platform_mb.o ./src/platform_ppc.o ./src/platform_zynq.o ./src/platform_zynqmp.o ./src/sfp.o ./src/si5324.o  ./src/echo.d ./src/i2c_access.d ./src/iic_phyreset.d ./src/main.d ./src/platform.d ./src/platform_mb.d ./src/platform_ppc.d ./src/platform_zynq.d ./src/platform_zynqmp.d ./src/sfp.d ./src/si5324.d  ethernet.elf.size  ethernet.elf
+' '
+20:02:55 **** Incremental Build of configuration Debug for project ethernet ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/echo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/echo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/echo.d" -MT"src/echo.o" -o "src/echo.o" "../src/echo.c"
+'Finished building: ../src/echo.c'
+' '
+'Building file: ../src/i2c_access.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_access.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_access.d" -MT"src/i2c_access.o" -o "src/i2c_access.o" "../src/i2c_access.c"
+'Finished building: ../src/i2c_access.c'
+' '
+'Building file: ../src/iic_phyreset.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/iic_phyreset.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/iic_phyreset.d" -MT"src/iic_phyreset.o" -o "src/iic_phyreset.o" "../src/iic_phyreset.c"
+'Finished building: ../src/iic_phyreset.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/platform_mb.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_mb.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_mb.d" -MT"src/platform_mb.o" -o "src/platform_mb.o" "../src/platform_mb.c"
+'Finished building: ../src/platform_mb.c'
+' '
+'Building file: ../src/platform_ppc.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_ppc.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_ppc.d" -MT"src/platform_ppc.o" -o "src/platform_ppc.o" "../src/platform_ppc.c"
+'Finished building: ../src/platform_ppc.c'
+' '
+'Building file: ../src/platform_zynq.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynq.d" -MT"src/platform_zynq.o" -o "src/platform_zynq.o" "../src/platform_zynq.c"
+'Finished building: ../src/platform_zynq.c'
+' '
+'Building file: ../src/platform_zynqmp.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynqmp.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynqmp.d" -MT"src/platform_zynqmp.o" -o "src/platform_zynqmp.o" "../src/platform_zynqmp.c"
+'Finished building: ../src/platform_zynqmp.c'
+' '
+'Building file: ../src/sfp.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/sfp.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/sfp.d" -MT"src/sfp.o" -o "src/sfp.o" "../src/sfp.c"
+'Finished building: ../src/sfp.c'
+' '
+'Building file: ../src/si5324.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/si5324.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/si5324.d" -MT"src/si5324.o" -o "src/si5324.o" "../src/si5324.c"
+'Finished building: ../src/si5324.c'
+' '
+'Building target: ethernet.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "ethernet.elf"  ./src/echo.o ./src/i2c_access.o ./src/iic_phyreset.o ./src/main.o ./src/platform.o ./src/platform_mb.o ./src/platform_ppc.o ./src/platform_zynq.o ./src/platform_zynqmp.o ./src/sfp.o ./src/si5324.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: ethernet.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size ethernet.elf  |tee "ethernet.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  96652	   3836	2218288	2318776	 2361b8	ethernet.elf
+'Finished building: ethernet.elf.size'
+' '
+20:12:37 **** Incremental Build of configuration Debug for project ethernet ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+20:18:08 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:356:5: warning: variable 'Slika' set but not used [-Wunused-but-set-variable]
+  u8 Slika[614400];
+     ^~~~~
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30164	   1580	1030280	1062024	 103488	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+20:18:38 **** Incremental Build of configuration Debug for project ethernet ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+20:19:30 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+20:19:52 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+20:30:10 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:444:6: warning: unused variable 'cnt' [-Wunused-variable]
+  int cnt = 0;
+      ^~~
+At top level:
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30424	   1580	1030280	1062284	 10358c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+20:30:24 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30424	   1580	1030280	1062284	 10358c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+20:31:49 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30424	   1580	1030280	1062284	 10358c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+20:31:57 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+22:20:44 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+22:25:55 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30360	   1580	1030280	1062220	 10354c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+22:26:12 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+22:31:52 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+23:19:37 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:394:2: warning: implicit declaration of function 'InitColorBar' [-Wimplicit-function-declaration]
+  InitColorBar();
+  ^~~~~~~~~~~~
+../src/main.c: At top level:
+../src/main.c:471:6: warning: conflicting types for 'InitColorBar'
+ void InitColorBar(){
+      ^~~~~~~~~~~~
+../src/main.c:394:2: note: previous implicit declaration of 'InitColorBar' was here
+  InitColorBar();
+  ^~~~~~~~~~~~
+../src/main.c:347:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:333:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:297:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30360	   1580	1030280	1062220	 10354c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+23:20:09 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:348:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:334:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:298:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30360	   1580	1030280	1062220	 10354c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+23:20:14 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+23:20:29 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+23:51:17 **** Auto Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:348:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:334:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+../src/main.c:298:27: warning: 'ov7670_fmt_yuv422' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_fmt_yuv422[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: mas_camera.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "mas_camera.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: mas_camera.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mas_camera.elf  |tee "mas_camera.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  30360	   1580	1030280	1062220	 10354c	mas_camera.elf
+'Finished building: mas_camera.elf.size'
+' '
+23:51:22 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+23:56:14 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+23:56:27 **** Incremental Build of configuration Debug for project mas_camera ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+00:01:11 **** Incremental Build of configuration Debug for project mas_camera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '

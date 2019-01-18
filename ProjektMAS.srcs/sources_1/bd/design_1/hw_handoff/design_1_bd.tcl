@@ -163,9 +163,6 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set XCLK [ create_bd_port -dir O -type clk XCLK ]
-  set_property -dict [ list \
-   CONFIG.FREQ_HZ {20000000} \
- ] $XCLK
 
   # Create instance: axi_gpio_0, and set properties
   set axi_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0 ]
@@ -175,6 +172,22 @@ proc create_root_design { parentCell } {
    CONFIG.GPIO_BOARD_INTERFACE {Custom} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_gpio_0
+
+  # Create instance: gpio, and set properties
+  set gpio [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 gpio ]
+  set_property -dict [ list \
+   CONFIG.C_BRAM_CNT {20} \
+   CONFIG.C_DATA_DEPTH {65536} \
+   CONFIG.C_SLOT_0_INTF_TYPE {xilinx.com:interface:gpio_rtl:1.0} \
+ ] $gpio
+
+  # Create instance: i2c, and set properties
+  set i2c [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 i2c ]
+  set_property -dict [ list \
+   CONFIG.C_BRAM_CNT {0.5} \
+   CONFIG.C_NUM_MONITOR_SLOTS {1} \
+   CONFIG.C_SLOT_0_INTF_TYPE {xilinx.com:interface:iic_rtl:1.0} \
+ ] $i2c
 
   # Create instance: proc_sys_reset_0, and set properties
   set proc_sys_reset_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0 ]
@@ -965,16 +978,18 @@ proc create_root_design { parentCell } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net axi_gpio_0_GPIO [get_bd_intf_ports camera_11bits] [get_bd_intf_pins axi_gpio_0/GPIO]
+connect_bd_intf_net -intf_net [get_bd_intf_nets axi_gpio_0_GPIO] [get_bd_intf_ports camera_11bits] [get_bd_intf_pins gpio/SLOT_0_GPIO]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_IIC_0 [get_bd_intf_ports IIC_0_0] [get_bd_intf_pins processing_system7_0/IIC_0]
+connect_bd_intf_net -intf_net [get_bd_intf_nets processing_system7_0_IIC_0] [get_bd_intf_ports IIC_0_0] [get_bd_intf_pins i2c/SLOT_0_IIC]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
 
   # Create port connections
-  connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins proc_sys_reset_0/interconnect_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK]
+  connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins proc_sys_reset_0/interconnect_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins gpio/clk] [get_bd_pins i2c/clk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK]
   connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_ports XCLK] [get_bd_pins processing_system7_0/FCLK_CLK1]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
 

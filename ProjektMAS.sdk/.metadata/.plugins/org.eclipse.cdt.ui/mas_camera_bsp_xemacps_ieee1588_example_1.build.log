@@ -1,0 +1,8 @@
+20:01:22 **** Incremental Build of configuration Debug for project mas_camera_bsp_xemacps_ieee1588_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+
+20:01:22 Build Finished (took 215ms)
+

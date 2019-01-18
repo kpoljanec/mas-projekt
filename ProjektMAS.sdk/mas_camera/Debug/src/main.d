@@ -15,7 +15,9 @@ src/main.o src/main.o: ../src/main.c \
  ../../mas_camera_bsp/ps7_cortexa9_0/include/xplatform_info.h \
  ../../mas_camera_bsp/ps7_cortexa9_0/include/xgpio.h \
  ../../mas_camera_bsp/ps7_cortexa9_0/include/xgpio_l.h \
- ../../mas_camera_bsp/ps7_cortexa9_0/include/xil_printf.h
+ ../../mas_camera_bsp/ps7_cortexa9_0/include/xil_printf.h \
+ ../../mas_camera_bsp/ps7_cortexa9_0/include/xstatus.h \
+ ../../mas_camera_bsp/ps7_cortexa9_0/include/sleep.h
 
 ../../mas_camera_bsp/ps7_cortexa9_0/include/xparameters.h:
 
@@ -50,3 +52,7 @@ src/main.o src/main.o: ../src/main.c \
 ../../mas_camera_bsp/ps7_cortexa9_0/include/xgpio_l.h:
 
 ../../mas_camera_bsp/ps7_cortexa9_0/include/xil_printf.h:
+
+../../mas_camera_bsp/ps7_cortexa9_0/include/xstatus.h:
+
+../../mas_camera_bsp/ps7_cortexa9_0/include/sleep.h:
