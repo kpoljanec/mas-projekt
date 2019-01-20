@@ -4,9 +4,31 @@
 #include "xil_printf.h"
 #include "xstatus.h"
 #include "sleep.h"
+#include <stdio.h>
+#include "netif/xadapter.h"
+
+#include "platform.h"
+#include "platform_config.h"
+#if defined (__arm__) || defined(__aarch64__)
+#include "xil_printf.h"
+#endif
+
+#include "lwip/tcp.h"
+#include "lwip/err.h"
+#include "xil_cache.h"
+
+#if LWIP_DHCP==1
+#include "lwip/dhcp.h"
+#endif
+
+extern volatile int TcpFastTmrFlag;
+extern volatile int TcpSlowTmrFlag;
+static struct netif server_netif;
+struct netif *echo_netif;
 
 XIicPs Iic;
 XGpio Gpio;
+static u8 Slika[614400];
 
 void InitCamera();
 void InitRGB();
@@ -15,6 +37,15 @@ unsigned int CAMERA_isVSYNup(unsigned int camera_read);
 unsigned int CAMERA_isHREFup(unsigned int camera_read);
 unsigned int CAMERA_isPCLKup(unsigned int camera_read);
 int WriteReg(u8 reg, u8 value);
+void print_ip(char *msg, struct ip_addr *ip);
+void print_ip_settings(struct ip_addr *ip, struct ip_addr *mask, struct ip_addr *gw);
+int InitEthernet();
+int start_application();
+err_t accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err);
+err_t recv_callback(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err);
+int transfer_data();
+void print_app_header();
+void readFromCamera();
 
 #define READ_CAM XGpio_DiscreteRead(&Gpio, 1)
 #define OV7670_I2C_ADDR 0x21
@@ -354,7 +385,6 @@ static struct regval_list ov7670_image[] = {
 int main(void){
 	int Status;
 	XIicPs_Config *Config;
-	u8 Slika[614400];
 
 	/*
 	 * Initialize the IIC driver so that it's ready to use
@@ -393,63 +423,43 @@ int main(void){
 	InitCamera();
 	InitRGB();
 
-	int z;
-	unsigned int tt, tt1;
+	InitEthernet();
 
-ll:	z=0;
-	while(!CAMERA_isVSYNup(READ_CAM));
-	while(CAMERA_isVSYNup(READ_CAM));
-
-	for(int y = 0; y<480; y++){  //288
-		//Wait line to start
-		if(y<0){
-			xil_printf("y %d z %d\r\n",y,z);
+	/* receive and process packets */
+	while (1) {
+		if (TcpFastTmrFlag) {
+			tcp_fasttmr();
+			TcpFastTmrFlag = 0;
 		}
-		do{
-			tt=READ_CAM;
-			if(CAMERA_isVSYNup(tt)){
-				xil_printf("VSINC error [%d]\r\n",y);
-				goto ll;
-			}
-		}while(!CAMERA_isHREFup(tt));
-
-		//Y[z] =(u8)(tt);
-		//z++;
-		for(int r = 0;r<1280;r++){ //352
-			do{tt=READ_CAM;
-			}
-			while(!CAMERA_isPCLKup(tt)); //while(CAMERA_isPCLKup(tt));
-
-			//---------
-			do{
-				tt1=READ_CAM;
-				if(!CAMERA_isHREFup(tt1) && r!=1279){
-					xil_printf("HREF error [%d]\r\n",r);
-					goto ll;
-				}
-			}while(CAMERA_isPCLKup(tt1));
-
-			//Write data
-			//HMY[z] =(Xuint8)(tt>>3);
-			Slika[z] =(u8)(tt);
-			z++;
+		if (TcpSlowTmrFlag) {
+			tcp_slowtmr();
+			TcpSlowTmrFlag = 0;
 		}
-		while(CAMERA_isHREFup(READ_CAM));
-
+		xemacif_input(echo_netif);
+		transfer_data();
 	}
 
-	xil_printf("%d",z);
-	xil_printf("OK !!!\r\n");
-
-	u16 data;
-	for(int i = 0; i < 307200; i++){
-		data = Slika[2*i];
-		data <<= 8;
-		data |= Slika[2*i+1];
-		xil_printf("%u ",data);
-	}
+	/* never reached */
+	cleanup_platform();
 
 	return 0;
+
+
+
+
+//	//ISPIS SLIKE
+//	xil_printf("%d",z);
+//	xil_printf("OK !!!\r\n");
+//
+//	u16 data;
+//	for(int i = 0; i < 307200; i++){
+//		data = Slika[2*i];
+//		data <<= 8;
+//		data |= Slika[2*i+1];
+//		xil_printf("%u ",data);
+//	}
+//
+//	return 0;
 }
 
 void InitCamera(){
@@ -512,4 +522,219 @@ int WriteReg(u8 reg, u8 value)
 	usleep(30*1000);	// wait 30ms
 
 	return XST_SUCCESS;
+}
+
+void print_ip(char *msg, struct ip_addr *ip)
+{
+	print(msg);
+	xil_printf("%d.%d.%d.%d\n\r", ip4_addr1(ip), ip4_addr2(ip),
+			ip4_addr3(ip), ip4_addr4(ip));
+}
+
+void print_ip_settings(struct ip_addr *ip, struct ip_addr *mask, struct ip_addr *gw)
+{
+
+	print_ip("Board IP: ", ip);
+	print_ip("Netmask : ", mask);
+	print_ip("Gateway : ", gw);
+}
+
+int InitEthernet(){
+	struct ip_addr ipaddr, netmask, gw;
+
+	/* the mac address of the board. this should be unique per board */
+	unsigned char mac_ethernet_address[] =
+			{ 0x00, 0x0a, 0x35, 0x00, 0x01, 0x02 };
+
+	echo_netif = &server_netif;
+
+	init_platform();
+
+	/* initliaze IP addresses to be used */
+	IP4_ADDR(&ipaddr, 192, 168, 1, 10);
+	IP4_ADDR(&netmask, 255, 255, 255, 0);
+	IP4_ADDR(&gw, 192, 168, 1, 1);
+
+	print_app_header();
+
+	lwip_init();
+
+	/* Add network interface to the netif_list, and set it as default */
+	if (!xemac_add(echo_netif, &ipaddr, &netmask, &gw, mac_ethernet_address,
+			PLATFORM_EMAC_BASEADDR)) {
+		xil_printf("Error adding N/W interface\n\r");
+		return -1;
+	}
+	netif_set_default(echo_netif);
+
+	/* now enable interrupts */
+	platform_enable_interrupts();
+
+	/* specify that the network if is up */
+	netif_set_up(echo_netif);
+
+	print_ip_settings(&ipaddr, &netmask, &gw);
+
+	/* start the application (web server, rxtest, txtest, etc..) */
+	start_application();
+
+}
+
+int transfer_data() {
+	return 0;
+}
+
+void print_app_header()
+{
+	xil_printf("\n\r\n\r-----lwIP TCP echo server ------\n\r");
+	xil_printf("TCP packets sent to port 6001 will be echoed back\n\r");
+}
+
+//funkcija koja se poziva kad dode paket. Tu treba dohvatit sliku, kodirat ju i poslat
+err_t recv_callback(void *arg, struct tcp_pcb *tpcb,
+                               struct pbuf *p, err_t err)
+{
+	/* do not read the packet if we are not in ESTABLISHED state */
+	if (!p) {
+		tcp_close(tpcb);
+		tcp_recv(tpcb, NULL);
+		return ERR_OK;
+	}
+
+	/* indicate that the packet has been received */
+	tcp_recved(tpcb, p->len);
+
+	//citanje slike s kamere
+	readFromCamera();
+
+	//slanje slike
+	u16 data;
+	for (int i = 0; i < 307200; i++) {
+		data = Slika[2 * i];
+		data <<= 8;
+		data |= Slika[2 * i + 1];
+		//xil_printf("%u ", data);
+		if (tcp_sndbuf(tpcb) > sizeof(data)) {
+			err = tcp_write(tpcb, &data , sizeof(data), 1);
+		}
+		else{
+			xil_printf("no space in tcp_sndbuf\n\r");
+		}
+	}
+
+//	/* echo back the payload */
+//	/* in this case, we assume that the payload is < TCP_SND_BUF */
+//	if (tcp_sndbuf(tpcb) > p->len) {
+//		err = tcp_write(tpcb, p->payload, p->len, 1);
+//	} else
+//		xil_printf("no space in tcp_sndbuf\n\r");
+
+	/* free the received pbuf */
+	pbuf_free(p);
+
+	return ERR_OK;
+}
+
+err_t accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err)
+{
+	static int connection = 1;
+
+	/* set the receive callback for this connection */
+	tcp_recv(newpcb, recv_callback);
+
+	/* just use an integer number indicating the connection id as the
+	   callback argument */
+	tcp_arg(newpcb, (void*)(UINTPTR)connection);
+
+	/* increment for subsequent accepted connections */
+	connection++;
+
+	return ERR_OK;
+}
+
+
+int start_application()
+{
+	struct tcp_pcb *pcb;
+	err_t err;
+	unsigned port = 7;
+
+	/* create new TCP PCB structure */
+	pcb = tcp_new();
+	if (!pcb) {
+		xil_printf("Error creating PCB. Out of Memory\n\r");
+		return -1;
+	}
+
+	/* bind to specified @port */
+	err = tcp_bind(pcb, IP_ADDR_ANY, port);
+	if (err != ERR_OK) {
+		xil_printf("Unable to bind to port %d: err = %d\n\r", port, err);
+		return -2;
+	}
+
+	/* we do not need any arguments to callback functions */
+	tcp_arg(pcb, NULL);
+
+	/* listen for connections */
+	pcb = tcp_listen(pcb);
+	if (!pcb) {
+		xil_printf("Out of memory while tcp_listen\n\r");
+		return -3;
+	}
+
+	/* specify callback to use for incoming connections */
+	tcp_accept(pcb, accept_callback);
+
+	xil_printf("TCP echo server started @ port %d\n\r", port);
+
+	return 0;
+}
+
+void readFromCamera(){
+	//CITANJE S KAMERE
+	int z;
+	unsigned int tt, tt1;
+
+ll:	z=0;
+	while(!CAMERA_isVSYNup(READ_CAM));
+	while(CAMERA_isVSYNup(READ_CAM));
+
+	for(int y = 0; y<480; y++){  //288
+		//Wait line to start
+		if(y<0){
+			xil_printf("y %d z %d\r\n",y,z);
+		}
+		do{
+			tt=READ_CAM;
+			if(CAMERA_isVSYNup(tt)){
+				xil_printf("VSINC error [%d]\r\n",y);
+				goto ll;
+			}
+		}while(!CAMERA_isHREFup(tt));
+
+		//Y[z] =(u8)(tt);
+		//z++;
+		for(int r = 0;r<1280;r++){ //352
+			do{tt=READ_CAM;
+			}
+			while(!CAMERA_isPCLKup(tt)); //while(CAMERA_isPCLKup(tt));
+
+			//---------
+			do{
+				tt1=READ_CAM;
+				if(!CAMERA_isHREFup(tt1) && r!=1279){
+					xil_printf("HREF error [%d]\r\n",r);
+					goto ll;
+				}
+			}while(CAMERA_isPCLKup(tt1));
+
+			//Write data
+			//HMY[z] =(Xuint8)(tt>>3);
+			Slika[z] =(u8)(tt);
+			z++;
+		}
+		while(CAMERA_isHREFup(READ_CAM));
+
+	}
 }
