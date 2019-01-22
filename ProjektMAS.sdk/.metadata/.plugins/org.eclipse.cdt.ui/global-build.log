@@ -1862,3 +1862,863 @@ make pre-build main-build
 a9-linaro-pre-build-step
 ' '
 make: Ništa za napraviti za `main-build'.
+15:31:08 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:413:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+'Finished building: ../src/main.c'
+ static struct regval_list ov7670_image[] = {
+' '
+                           ^~~~~~~~~~~~
+'Building target: MAS-projekt.elf'
+../src/main.c:399:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+'Invoking: ARM v7 gcc linker'
+ static struct regval_list ov7670_test_shift[] = {
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+                           ^~~~~~~~~~~~~~~~~
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+15:31:34 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:487:2: warning: implicit declaration of function 'InitYUV222' [-Wimplicit-function-declaration]
+  InitYUV222();
+  ^~~~~~~~~~
+At top level:
+../src/main.c:413:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:399:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+./src/main.o: In function `main':
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:487: undefined reference to `InitYUV222'
+collect2.exe: error: ld returned 1 exit status
+make: *** [MAS-projekt.elf] Greška 1
+15:31:58 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+15:46:43 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+15:48:03 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+15:48:35 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:17:10 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:18:59 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+16:19:07 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:20:49 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:34:13 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+16:34:21 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:41:18 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:48:26 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'accept_callback':
+../src/main.c:671:19: error: 'z' undeclared (first use in this function)
+   xil_printf("%d",z);
+                   ^
+../src/main.c:671:19: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+16:48:32 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105288	   4260	4233520	4343068	 42451c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+16:49:04 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:51:23 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+16:52:24 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+17:05:33 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+17:06:16 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+17:06:30 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+17:28:25 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:72:1: error: unknown type name 'Xint8'
+ Xint8 *slika;
+ ^~~~~
+../src/main.c: In function 'readFromCamera':
+../src/main.c:720:8: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+  slika = (u8*) malloc(614400 * sizeof(u8));
+        ^
+At top level:
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+17:29:02 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'readFromCamera':
+../src/main.c:720:8: warning: pointer targets in assignment differ in signedness [-Wpointer-sign]
+  slika = (u8*) malloc(614400 * sizeof(u8));
+        ^
+At top level:
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+17:29:15 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:414:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:400:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+17:30:36 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:415:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:401:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	4233520	4342860	 42444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+17:33:11 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+17:38:17 **** Clean-only build of configuration Debug for project MAS-projekt ****
+make clean 
+rm -rf  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o  ./src/echo.d ./src/main.d ./src/platform.d ./src/platform_zynq.d  MAS-projekt.elf.size  MAS-projekt.elf
+' '
+17:38:18 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/echo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/echo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/echo.d" -MT"src/echo.o" -o "src/echo.o" "../src/echo.c"
+'Finished building: ../src/echo.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:415:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:401:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/platform_zynq.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynq.d" -MT"src/platform_zynq.o" -o "src/platform_zynq.o" "../src/platform_zynq.c"
+'Finished building: ../src/platform_zynq.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105080	   4260	12622128	12731468	 c2444c	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+17:42:15 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'TwoDDCT':
+../src/main.c:780:24: error: 'Shifted_array' undeclared (first use in this function)
+         temp += (float)Shifted_array[x + i][y + j][k] * cos((2.0 * (float)x + 1) * 3.14 * (float)u / 16) * cos((2.0 * (float)y + 1) * 3.14 * (float)v / 16);
+                        ^~~~~~~~~~~~~
+../src/main.c:780:24: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:783:7: error: 'DCT_array' undeclared (first use in this function)
+       DCT_array[u + i][v + j][k] = (short)((float)0.25 * C(u) * C(v) * temp);
+       ^~~~~~~~~
+At top level:
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:02:02 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'TwoDDCT':
+../src/main.c:780:24: error: 'Shifted_array' undeclared (first use in this function)
+         temp += (float)Shifted_array[x + i][y + j][k] * cos((2.0 * (float)x + 1) * 3.14 * (float)u / 16) * cos((2.0 * (float)y + 1) * 3.14 * (float)v / 16);
+                        ^~~~~~~~~~~~~
+../src/main.c:780:24: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:783:7: error: 'DCT_array' undeclared (first use in this function)
+       DCT_array[u + i][v + j][k] = (short)((float)0.25 * C(u) * C(v) * temp);
+       ^~~~~~~~~
+At top level:
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:13:03 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'TwoDDCT':
+../src/main.c:799:24: error: 'Shifted_array' undeclared (first use in this function)
+         temp += (float)Shifted_array[x + i][y + j][k] * cos((2.0 * (float)x + 1) * 3.14 * (float)u / 16) * cos((2.0 * (float)y + 1) * 3.14 * (float)v / 16);
+                        ^~~~~~~~~~~~~
+../src/main.c:799:24: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:802:7: error: 'DCT_array' undeclared (first use in this function)
+       DCT_array[u + i][v + j][k] = (short)((float)0.25 * C(u) * C(v) * temp);
+       ^~~~~~~~~
+At top level:
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:13:08 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+./src/main.o: In function `accept_callback':
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:672: undefined reference to `TwoDDCT'
+collect2.exe: error: ld returned 1 exit status
+make: *** [MAS-projekt.elf] Greška 1
+18:13:25 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105464	   4260	12622128	12731852	 c245cc	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+18:14:04 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 105464	   4260	12622128	12731852	 c245cc	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+18:15:41 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:26:26 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'TwoD_DCT':
+../src/main.c:802:7: error: 'DCT_array' undeclared (first use in this function)
+       DCT_array[u + i][v + j][k] = (short)((float)0.25 * C(u) * C(v) * temp);
+       ^~~~~~~~~
+../src/main.c:802:7: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:27:09 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'TwoD_DCT':
+../src/main.c:803:7: error: 'DCT_array' undeclared (first use in this function)
+       DCT_array[u + i][v + j][k] = (short)((float)0.25 * C(u) * C(v) * temp);
+       ^~~~~~~~~
+../src/main.c:803:7: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:28:17 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'TwoD_DCT':
+../src/main.c:803:44: error: expected expression before ')' token
+       *(slika + k + 3*u + 3*i + 1920*v + 3*) = (short)((float)0.25 * C(u) * C(v) * temp);
+                                            ^
+At top level:
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:28:38 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+./src/main.o: In function `TwoD_DCT':
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:800: undefined reference to `cos'
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:800: undefined reference to `cos'
+collect2.exe: error: ld returned 1 exit status
+make: *** [MAS-projekt.elf] Greška 1
+18:28:50 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+./src/main.o: In function `TwoD_DCT':
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:800: undefined reference to `cos'
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:800: undefined reference to `cos'
+collect2.exe: error: ld returned 1 exit status
+make: *** [MAS-projekt.elf] Greška 1
+18:29:06 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:35:12: warning: extra tokens at end of #include directive
+ #include <>math.h>
+            ^~~~
+../src/main.c:35:10: error: empty filename in #include
+ #include <>math.h>
+          ^~
+../src/main.c: In function 'TwoD_DCT':
+../src/main.c:800:66: warning: implicit declaration of function 'cos' [-Wimplicit-function-declaration]
+         temp += (float)*(slika + k + 3*x + 3*i + 1920*y + 3*j) * cos((2.0 * (float)x + 1) * 3.14 * (float)u / 16) * cos((2.0 * (float)y + 1) * 3.14 * (float)v / 16);
+                                                                  ^~~
+../src/main.c:800:66: warning: incompatible implicit declaration of built-in function 'cos'
+../src/main.c:800:66: note: include '<math.h>' or provide a declaration of 'cos'
+../src/main.c: In function 'C':
+../src/main.c:813:17: warning: implicit declaration of function 'sqrt' [-Wimplicit-function-declaration]
+   return (float)sqrt(1/ (float)2.0);
+                 ^~~~
+../src/main.c:813:17: warning: incompatible implicit declaration of built-in function 'sqrt'
+../src/main.c:813:17: note: include '<math.h>' or provide a declaration of 'sqrt'
+At top level:
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+make: *** [src/main.o] Greška 1
+18:29:09 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+./src/main.o: In function `TwoD_DCT':
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:800: undefined reference to `cos'
+C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\MAS-projekt\Debug/../src/main.c:800: undefined reference to `cos'
+collect2.exe: error: ld returned 1 exit status
+make: *** [MAS-projekt.elf] Greška 1
+18:31:25 **** Clean-only build of configuration Debug for project MAS-projekt ****
+make clean 
+rm -rf  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o  ./src/echo.d ./src/main.d ./src/platform.d ./src/platform_zynq.d  MAS-projekt.elf.size  MAS-projekt.elf
+' '
+18:31:25 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/echo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/echo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/echo.d" -MT"src/echo.o" -o "src/echo.o" "../src/echo.c"
+'Finished building: ../src/echo.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/platform_zynq.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynq.d" -MT"src/platform_zynq.o" -o "src/platform_zynq.o" "../src/platform_zynq.c"
+'Finished building: ../src/platform_zynq.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 111252	   4260	12622128	12737640	 c25c68	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+18:32:21 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 111252	   4260	12622128	12737640	 c25c68	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+18:42:42 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.
+18:45:54 **** Auto Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c:418:27: warning: 'ov7670_image' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_image[] = {
+                           ^~~~~~~~~~~~
+../src/main.c:404:27: warning: 'ov7670_test_shift' defined but not used [-Wunused-variable]
+ static struct regval_list ov7670_test_shift[] = {
+                           ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: MAS-projekt.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mas_camera_bsp/ps7_cortexa9_0/lib -o "MAS-projekt.elf"  ./src/echo.o ./src/main.o ./src/platform.o ./src/platform_zynq.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: MAS-projekt.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size MAS-projekt.elf  |tee "MAS-projekt.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 111252	   4260	12622128	12737640	 c25c68	MAS-projekt.elf
+'Finished building: MAS-projekt.elf.size'
+' '
+18:46:03 **** Incremental Build of configuration Debug for project MAS-projekt ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ništa za napraviti za `main-build'.

@@ -32,7 +32,7 @@
 
 #include <stdio.h>
 
-#include <math.h>
+#include "fastmath.h"
 #include "xparameters.h"
 #include "xiicps.h"
 #include "xgpio.h"
@@ -631,14 +631,14 @@ err_t recv_callback(void *arg, struct tcp_pcb *tpcb,
 	/* in this case, we assume that the payload is < TCP_SND_BUF */
 	if (tcp_sndbuf(tpcb) > p->len) {
 		//err = tcp_write(tpcb, p->payload, p->len, 1);
-		err = tcp_write(tpcb, dct + 8192 * cnt, 8192, 1);
+		err = tcp_write(tpcb, slika + 8192 * cnt, 8192, 1);
 	} else
 		xil_printf("no space in tcp_sndbuf\n\r");
 
 	cnt++;
 	if(cnt == 113){
 		cnt = 0;
-		free(dct);
+		free(slika);
 	}
 	/* free the received pbuf */
 	pbuf_free(p);
@@ -800,13 +800,12 @@ void TwoD_DCT(int height, int width) {
 								temp += (float)*(slika + k + 3*x + 3*i + 1920*y + 3*j) * cos((2.0 * (float)x + 1) * 3.14 * (float)u / 16) * cos((2.0 * (float)y + 1) * 3.14 * (float)v / 16);
 							}
 						}
-						*(dct + k + 3*u + 3*i + 1920*v + 3*j) = (char)((float)0.25 * C(u) * C(v) * temp);
+						*(slika + k + 3*u + 3*i + 1920*v + 3*j) = (short)((float)0.25 * C(u) * C(v) * temp);
 					}
 				}
 			}
 		}
 	}
-	free(slika);
 }
 
 float C(int u) {

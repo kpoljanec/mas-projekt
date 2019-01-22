@@ -32,7 +32,7 @@
 
 #include <stdio.h>
 
-#include <math.h>
+#include "fastmath.h"
 #include "xparameters.h"
 #include "xiicps.h"
 #include "xgpio.h"
@@ -71,7 +71,6 @@ struct netif *echo_netif;
 XIicPs Iic;
 XGpio Gpio;
 char *slika;
-char *dct;
 static int cnt;
 
 void InitCamera();
@@ -83,8 +82,6 @@ unsigned int CAMERA_isHREFup(unsigned int camera_read);
 unsigned int CAMERA_isPCLKup(unsigned int camera_read);
 int WriteReg(u8 reg, u8 value);
 void readFromCamera();
-void TwoDDCT();
-float C(int u);
 
 #define READ_CAM XGpio_DiscreteRead(&Gpio, 1)
 #define OV7670_I2C_ADDR 0x21
@@ -631,14 +628,14 @@ err_t recv_callback(void *arg, struct tcp_pcb *tpcb,
 	/* in this case, we assume that the payload is < TCP_SND_BUF */
 	if (tcp_sndbuf(tpcb) > p->len) {
 		//err = tcp_write(tpcb, p->payload, p->len, 1);
-		err = tcp_write(tpcb, dct + 8192 * cnt, 8192, 1);
+		err = tcp_write(tpcb, slika + 8192 * cnt, 8192, 1);
 	} else
 		xil_printf("no space in tcp_sndbuf\n\r");
 
 	cnt++;
-	if(cnt == 113){
+	if(cnt == 75){
 		cnt = 0;
-		free(dct);
+		free(slika);
 	}
 	/* free the received pbuf */
 	pbuf_free(p);
@@ -669,7 +666,6 @@ err_t accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err)
 
 	xil_printf("accept_callback\r\n");
 	readFromCamera();
-	//TwoDDCT();
 
 	xil_printf("picture read\r\n");
 
@@ -722,7 +718,7 @@ void readFromCamera(){
 	//CITANJE S KAMERE
 	int z;
 	unsigned int tt, tt1;
-	slika = (char*) malloc(921600 * sizeof(char));
+	slika = (char*) malloc(614400 * sizeof(char));
 
 ll:	z=0;
 	while(!CAMERA_isVSYNup(READ_CAM));
@@ -759,61 +755,10 @@ ll:	z=0;
 
 			//Write data
 			//HMY[z] =(Xuint8)(tt>>3);
-			switch(r & 0x3){
-			case 0x00:
-				*(slika + z) =(u8)(tt) - 128;
-				z++;
-				break;
-			case 0x01:
-				*(slika + z) =(u8)(tt) - 128;
-				*(slika + z + 3) =(u8)(tt) - 128;
-				z += 2;
-				break;
-			case 0x02:
-				*(slika + z) =(u8)(tt) - 128;
-				z += 2;
-				break;
-			case 0x03:
-				*(slika + z) =(u8)(tt) - 128;
-				*(slika + z - 3) =(u8)(tt) - 128;
-				z++;
-				break;
-			}
-
+			*(slika + z) =(u8)(tt) - 128;
+			z++;
 		}
 		while(CAMERA_isHREFup(READ_CAM));
 
 	}
 }
-
-void TwoD_DCT(int height, int width) {
-	dct = (char*) malloc(921600 * sizeof(char));
-	float temp;
-	for (int i = 0; i < 480; i += 8) {
-		for (int j = 0; j < 640; j += 8) {
-				for (int u = 0; u < 8; u++) {
-					for (int v = 0; v < 8; v++) {
-						for (int k = 0; k < 3; k++) {
-						temp = 0.0;
-						for (int x = 0; x < 8; x++) {
-							for (int y = 0; y < 8; y++) {
-								temp += (float)*(slika + k + 3*x + 3*i + 1920*y + 3*j) * cos((2.0 * (float)x + 1) * 3.14 * (float)u / 16) * cos((2.0 * (float)y + 1) * 3.14 * (float)v / 16);
-							}
-						}
-						*(dct + k + 3*u + 3*i + 1920*v + 3*j) = (char)((float)0.25 * C(u) * C(v) * temp);
-					}
-				}
-			}
-		}
-	}
-	free(slika);
-}
-
-float C(int u) {
-	if (u == 0) {
-		return (float)sqrt(1/ (float)2.0);
-	} else {
-		return 1.0;
-	}
-}
-
