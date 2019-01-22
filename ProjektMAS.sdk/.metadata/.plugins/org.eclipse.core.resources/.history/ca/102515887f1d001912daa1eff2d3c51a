@@ -1,0 +1,9 @@
+#include "xparameters.h"
+#include "xiicps.h"
+#include "xgpio.h"
+#include "xil_printf.h"
+#include "xstatus.h"
+#include "sleep.h"
+
+void InitI2C(XIicPs *iic);
+void InitGpio(XGpio *gpio);

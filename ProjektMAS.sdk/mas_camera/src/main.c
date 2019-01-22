@@ -9,17 +9,10 @@
 
 #include "platform.h"
 #include "platform_config.h"
-#if defined (__arm__) || defined(__aarch64__)
-#include "xil_printf.h"
-#endif
 
 #include "lwip/tcp.h"
 #include "lwip/err.h"
 #include "xil_cache.h"
-
-#if LWIP_DHCP==1
-#include "lwip/dhcp.h"
-#endif
 
 extern volatile int TcpFastTmrFlag;
 extern volatile int TcpSlowTmrFlag;
@@ -386,6 +379,8 @@ int main(void){
 	int Status;
 	XIicPs_Config *Config;
 
+	init_platform();
+
 	/*
 	 * Initialize the IIC driver so that it's ready to use
 	 * Look up the configuration in the config table,
@@ -548,7 +543,6 @@ int InitEthernet(){
 
 	echo_netif = &server_netif;
 
-	init_platform();
 
 	/* initliaze IP addresses to be used */
 	IP4_ADDR(&ipaddr, 192, 168, 1, 10);

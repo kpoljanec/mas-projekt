@@ -1,4 +1,4 @@
-17:50:06 **** Auto Build of configuration Debug for project mas_camera_bsp_xgpio_example_1 ****
+13:56:07 **** Auto Build of configuration Debug for project mas_camera_bsp_xgpio_example_1 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -19,5 +19,5 @@ arm-none-eabi-size mas_camera_bsp_xgpio_example_1.elf  |tee "mas_camera_bsp_xgpi
 'Finished building: mas_camera_bsp_xgpio_example_1.elf.size'
 ' '
 
-17:50:07 Build Finished (took 1s.291ms)
+13:56:08 Build Finished (took 1s.411ms)
 

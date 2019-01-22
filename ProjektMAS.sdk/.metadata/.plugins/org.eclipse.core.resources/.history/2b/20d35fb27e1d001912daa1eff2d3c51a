@@ -1,0 +1,1 @@
+void InitI2C(XIicPs *iic);

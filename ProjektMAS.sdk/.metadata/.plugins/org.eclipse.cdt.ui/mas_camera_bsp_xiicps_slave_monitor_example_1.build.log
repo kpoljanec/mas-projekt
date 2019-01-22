@@ -1,4 +1,4 @@
-17:50:15 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
+13:56:16 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -19,5 +19,5 @@ arm-none-eabi-size mas_camera_bsp_xiicps_slave_monitor_example_1.elf  |tee "mas_
 'Finished building: mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size'
 ' '
 
-17:50:16 Build Finished (took 970ms)
+13:56:17 Build Finished (took 1s.375ms)
 
