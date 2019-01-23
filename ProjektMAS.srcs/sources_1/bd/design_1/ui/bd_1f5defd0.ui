@@ -7,24 +7,22 @@ preplace port IIC_0_0 -pg 1 -y 60 -defaultsOSRD
 preplace port XCLK -pg 1 -y 100 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -y -60 -defaultsOSRD
 preplace port camera_11bits -pg 1 -y 80 -defaultsOSRD
-preplace inst gpio -pg 1 -lvl 3 -y 270 -defaultsOSRD
 preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -y -70 -defaultsOSRD
 preplace inst axi_gpio_0 -pg 1 -lvl 2 -y -110 -defaultsOSRD
-preplace inst i2c -pg 1 -lvl 4 -y 190 -defaultsOSRD
 preplace inst ps7_0_axi_periph -pg 1 -lvl 5 -y -80 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 2 -y 80 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 2 4 750J -210 N -210 N -210 1810
-preplace netloc processing_system7_0_M_AXI_GP0 1 2 3 740 -140 N -140 N
+preplace netloc processing_system7_0_DDR 1 2 4 750J -200 N -200 N -200 1800
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 3 780 -140 N -140 N
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 -80 -180 NJ -180 730J
-preplace netloc processing_system7_0_IIC_0 1 2 4 NJ 60 970J 60 NJ 60 NJ
-preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 4 290J -220 NJ -220 NJ -220 1180J
-preplace netloc processing_system7_0_FIXED_IO 1 2 4 770J -200 N -200 N -200 1800
-preplace netloc axi_gpio_0_GPIO 1 2 4 760J 80 NJ 80 NJ 80 NJ
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 1 300
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -70 -160 310J -30 780 -30 980 -40 1190
-preplace netloc ps7_0_axi_periph_M00_AXI 1 1 5 320 -200 730J -190 N -190 1190 -220 1790
-preplace netloc processing_system7_0_FCLK_CLK1 1 2 4 790J 100 NJ 100 NJ 100 NJ
-levelinfo -pg 1 -100 120 530 880 1090 1660 1830 -top -410 -bot 1060
+preplace netloc processing_system7_0_IIC_0 1 2 4 NJ 60 NJ 60 NJ 60 NJ
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 4 290J -210 NJ -210 NJ -210 1110J
+preplace netloc processing_system7_0_FIXED_IO 1 2 4 770J -190 N -190 1120 -210 1810
+preplace netloc axi_gpio_0_GPIO 1 2 4 740J -220 NJ -220 NJ -220 1820J
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 1 310
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -70 -160 300J -40 760 -40 N -40 1120
+preplace netloc ps7_0_axi_periph_M00_AXI 1 1 5 310 -240 NJ -240 N -240 N -240 1790
+preplace netloc processing_system7_0_FCLK_CLK1 1 2 4 780J 100 NJ 100 NJ 100 NJ
+levelinfo -pg 1 -100 120 530 880 1090 1660 1840 -top -410 -bot 1060
 ",
 }
 {

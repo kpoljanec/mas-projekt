@@ -1,4 +1,4 @@
-13:56:16 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
+11:08:17 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_slave_monitor_example_1 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -15,9 +15,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size mas_camera_bsp_xiicps_slave_monitor_example_1.elf  |tee "mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  31856	   2748	  22728	  57332	   dff4	mas_camera_bsp_xiicps_slave_monitor_example_1.elf
+  31892	   2764	  22740	  57396	   e034	mas_camera_bsp_xiicps_slave_monitor_example_1.elf
 'Finished building: mas_camera_bsp_xiicps_slave_monitor_example_1.elf.size'
 ' '
 
-13:56:17 Build Finished (took 1s.375ms)
+11:08:18 Build Finished (took 1s.116ms)
 

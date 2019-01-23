@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -57,7 +58,6 @@ public class Ethernet {
 				BufferedImage img = new BufferedImage(640, 480, BufferedImage.TYPE_INT_RGB);
 				
 				List<Byte> brojeviRGB = new ArrayList<>();
-				List<Integer> pixeliYUV = new ArrayList<>();
 				List<Byte> brojeviYUV = new ArrayList<>();
 		        try {
 					out = new PrintWriter(socket.getOutputStream(), true);
@@ -68,7 +68,8 @@ public class Ethernet {
 				}
 		        
 		        
-		        for(int i = 0; i < 113; i++){
+		        
+		        for(int i = 0; i < 75; i++){
 		            out.println("ping");
 		            for(int j = 0; j < 8192; j++){
 		            	try {
@@ -79,6 +80,8 @@ public class Ethernet {
 						}
 		            }
 		        }
+		        
+		        
 		        out.close();
 		        try {
 					in.close();
@@ -87,68 +90,93 @@ public class Ethernet {
 					System.out.println("Exception!");
 					e1.printStackTrace();
 				}
-		        
 				
-				int y,u,v;
+				int y1,y2,u,v;
 				double r,g,b;
-								
-				List<Byte> dctArray = new ArrayList<>();
 				
-				float temp2;
-				for (int i = 0; i < 480; i += 8) {
-					for (int j = 0; j < 640; j += 8) {
-						for (u = 0; u < 8; u++) {
-							for (v = 0; v < 8; v++) {
-								for (int k = 0; k < 3; k++) {
-									temp2 = 0.0f;
-									for (int x = 0; x < 8; x++) {
-										for (y = 0; y < 8; y++) {
-											temp2 += C(x) * C(y) * (float)brojeviRGB.get(k + 3*x + 3*i + 1920*y + 3*j) * (float)Math.cos((2.0 * (float)u + 1) * 3.14 * (float)x / 16) * (float)Math.cos((2.0 * (float)v + 1) * 3.14 * (float)y / 16);
-										}
-									}
-									dctArray.set(k + 3*u + 3*i + 1920*v + 3*j, (byte)(0.25 * temp2));
-								}
-							}
+				for(int i = 0, n = brojeviRGB.size(); i < n / 4; i++){
+		        		y1 = brojeviRGB.get(4 * i);
+		        		u = brojeviRGB.get(4 * i + 1);
+		        		y2 = brojeviRGB.get(4 * i + 2);
+		        		v = brojeviRGB.get(4 * i + 3);
+		        		
+						if (y1 < 0) {
+							y1 += 256;
+						}		        		
+						if (y2 < 0) {
+							y2 += 256;
 						}
-					}
-				}
+						if (u < 0) {
+							u += 256;
+						}
+						if (v < 0) {
+							v += 256;
+						}
+
+						u -= 128;
+						v -= 128;
+						r = y1 + 1.14 * v;
+						g = y1 - 0.395 * u - 0.581 * v;
+						b = y1 + 2.032 * u;
+										
+						r = normalize((int)Math.round(r));
+						g = normalize((int)Math.round(g));
+						b = normalize((int)Math.round(b));
+					
+						brojeviYUV.add((byte)r);
+						brojeviYUV.add((byte)g);
+						brojeviYUV.add((byte)b);
+						
+						r = y2 + 1.14 * v;
+						g = y2 - 0.395 * u - 0.581 * v;
+						b = y2 + 2.032 * u;
+										
+						r = normalize((int)Math.round(r));
+						g = normalize((int)Math.round(g));
+						b = normalize((int)Math.round(b));
+					
+						brojeviYUV.add((byte)r);
+						brojeviYUV.add((byte)g);
+						brojeviYUV.add((byte)b);
+			        
+		        }
 				
 				
 				//dctArray u brojeviRGB 
-				for(int i = 0, n = dctArray.size(); i < n / 3; i++){
-					y = dctArray.get(3 * i) + 128;
-					u = dctArray.get(3 * i + 1) + 128;
-					v = dctArray.get(3 * i + 2) + 128;
-					if(y < 0){
-						y += 256;
-					}
-					if(u < 0){
-						u += 256;
-					}
-					if(v < 0){
-						v += 256;
-					}
-
-					u-=128;
-					v-=128;
-					r = y + 1.14 * v;
-					g = y - 0.395 * u - 0.581 * v;
-					b = y + 2.032 * u;
-					
-//					r = 1.164 * (y - 16) + 1.596 * (v - 128);
-//					g = 1.164 * (y - 16) - 0.813 * (v - 128) - 0.391 * (u - 128);
-//					b = 1.164 * (y - 16) + 2.018 * (u - 128);
-
-					
-					r = normalize((int)Math.round(r));
-					g = normalize((int)Math.round(g));
-					b = normalize((int)Math.round(b));
-					
-					brojeviYUV.add((byte)r);
-					brojeviYUV.add((byte)g);
-					brojeviYUV.add((byte)b);
-
-				}
+//				for(int i = 0, n = brojeviRGB.size(); i < n / 3; i++){
+//					y = brojeviRGB.get(3 * i) + 128;
+//					u = brojeviRGB.get(3 * i + 1) + 128;
+//					v = brojeviRGB.get(3 * i + 2) + 128;
+//					if(y < 0){
+//						y += 256;
+//					}
+//					if(u < 0){
+//						u += 256;
+//					}
+//					if(v < 0){
+//						v += 256;
+//					}
+//
+//					u-=128;
+//					v-=128;
+//					r = y + 1.14 * v;
+//					g = y - 0.395 * u - 0.581 * v;
+//					b = y + 2.032 * u;
+//					
+////					r = 1.164 * (y - 16) + 1.596 * (v - 128);
+////					g = 1.164 * (y - 16) - 0.813 * (v - 128) - 0.391 * (u - 128);
+////					b = 1.164 * (y - 16) + 2.018 * (u - 128);
+//
+//					
+//					r = normalize((int)Math.round(r));
+//					g = normalize((int)Math.round(g));
+//					b = normalize((int)Math.round(b));
+//					
+//					brojeviYUV.add((byte)r);
+//					brojeviYUV.add((byte)g);
+//					brojeviYUV.add((byte)b);
+//
+//				}
 				
 				int i = 0;
 				for (int k = 0; k < 480; k++) {

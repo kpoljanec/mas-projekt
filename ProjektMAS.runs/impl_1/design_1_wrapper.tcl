@@ -65,23 +65,21 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param tcl.collectionResultDisplayLimit 0
-  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7z020clg400-1
   set_property board_part digilentinc.com:arty-z7-20:part0:1.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/MAS/ProjektMAS/ProjektMAS.cache/wt [current_project]
-  set_property parent.project_path D:/MAS/ProjektMAS/ProjektMAS.xpr [current_project]
-  set_property ip_output_repo D:/MAS/ProjektMAS/ProjektMAS.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/Karlo/Desktop/MAS/mas-projekt/ProjektMAS.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Karlo/Desktop/MAS/mas-projekt/ProjektMAS.xpr [current_project]
+  set_property ip_output_repo C:/Users/Karlo/Desktop/MAS/mas-projekt/ProjektMAS.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet D:/MAS/ProjektMAS/ProjektMAS.runs/synth_1/design_1_wrapper.dcp
+  add_files -quiet C:/Users/Karlo/Desktop/MAS/mas-projekt/ProjektMAS.runs/synth_1/design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files D:/MAS/ProjektMAS/ProjektMAS.srcs/sources_1/bd/design_1/design_1.bd
+  add_files C:/Users/Karlo/Desktop/MAS/mas-projekt/ProjektMAS.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
-  read_xdc D:/MAS/ProjektMAS/ProjektMAS.srcs/constrs_1/new/const.xdc
+  read_xdc C:/Users/Karlo/Desktop/MAS/mas-projekt/ProjektMAS.srcs/constrs_1/new/const.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z020clg400-1
   set_param project.isImplRun false

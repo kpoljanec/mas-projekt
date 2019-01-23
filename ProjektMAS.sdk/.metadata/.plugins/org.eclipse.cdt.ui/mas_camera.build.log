@@ -1,4 +1,4 @@
-13:57:04 **** Auto Build of configuration Debug for project mas_camera ****
+11:07:59 **** Auto Build of configuration Debug for project mas_camera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -30,6 +30,16 @@ At top level:
  static struct regval_list ov7670_fmt_yuv422[] = {
                            ^~~~~~~~~~~~~~~~~
 'Finished building: ../src/main.c'
+' '
+'Building file: ../src/platform_zynq.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynq.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynq.d" -MT"src/platform_zynq.o" -o "src/platform_zynq.o" "../src/platform_zynq.c"
+'Finished building: ../src/platform_zynq.c'
+' '
+'Building file: ../src/platform_zynqmp.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_zynqmp.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mas_camera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_zynqmp.d" -MT"src/platform_zynqmp.o" -o "src/platform_zynqmp.o" "../src/platform_zynqmp.c"
+'Finished building: ../src/platform_zynqmp.c'
 ' '
 'Building target: mas_camera.elf'
 'Invoking: ARM v7 gcc linker'
@@ -65,5 +75,5 @@ C:\Users\Karlo\Desktop\MAS\mas-projekt\ProjektMAS.sdk\mas_camera\Debug/../src/pl
 collect2.exe: error: ld returned 1 exit status
 make: *** [mas_camera.elf] Greška 1
 
-13:57:05 Build Finished (took 1s.874ms)
+11:08:01 Build Finished (took 1s.980ms)
 

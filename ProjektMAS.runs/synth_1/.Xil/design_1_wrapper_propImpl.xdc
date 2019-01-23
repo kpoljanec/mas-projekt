@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/MAS/ProjektMAS/ProjektMAS.srcs/constrs_1/new/const.xdc rfile:../../../ProjektMAS.srcs/constrs_1/new/const.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/Karlo/Desktop/MAS/mas-projekt/ProjektMAS.srcs/constrs_1/new/const.xdc rfile:../../../ProjektMAS.srcs/constrs_1/new/const.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN T10 [get_ports IIC_0_0_scl_io]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

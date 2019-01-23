@@ -1,4 +1,4 @@
-13:56:09 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
+11:08:11 **** Auto Build of configuration Debug for project mas_camera_bsp_xiicps_intr_master_example_1 ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -15,9 +15,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size mas_camera_bsp_xiicps_intr_master_example_1.elf  |tee "mas_camera_bsp_xiicps_intr_master_example_1.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  33532	   2740	  23176	  59448	   e838	mas_camera_bsp_xiicps_intr_master_example_1.elf
+  33568	   2756	  23172	  59496	   e868	mas_camera_bsp_xiicps_intr_master_example_1.elf
 'Finished building: mas_camera_bsp_xiicps_intr_master_example_1.elf.size'
 ' '
 
-13:56:10 Build Finished (took 1s.293ms)
+11:08:12 Build Finished (took 1s.64ms)
 

@@ -1,4 +1,4 @@
-13:55:59 **** Auto Build of configuration Debug for project ethernet ****
+11:08:01 **** Auto Build of configuration Debug for project ethernet ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -50,9 +50,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size ethernet.elf  |tee "ethernet.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  96652	   3836	2218288	2318776	 2361b8	ethernet.elf
+  96688	   3852	2218288	2318828	 2361ec	ethernet.elf
 'Finished building: ethernet.elf.size'
 ' '
 
-13:56:04 Build Finished (took 4s.599ms)
+11:08:05 Build Finished (took 3s.695ms)
 
